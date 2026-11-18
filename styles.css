@@ -181,11 +181,6 @@ strong { font-weight: 700; }
 }
 .btn-outline:hover { background: rgba(255, 255, 255, .08); }
 
-.icon-link {
-  display: inline-flex;
-  align-items: center;
-  height: 23px;
-}
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -261,7 +256,10 @@ strong { font-weight: 700; }
   font-size: 15px;
   line-height: 26.25px;
 }
-.hero-signature { margin-top: 26.25px; }
+/* Proximity: асуулт ба асуудал нэг бүлэг, хариулт тусдаа, гарын үсэг хамгийн хол */
+.hero-intro p + p { margin-top: 16px; }
+.hero-intro p:first-child + p { margin-top: 4px; }
+.hero-intro .hero-signature { margin-top: 28px; }
 
 .hero-divider {
   max-width: 480px;
@@ -386,8 +384,6 @@ strong { font-weight: 700; }
   text-align: right;
 }
 
-.about .icon-link { margin-top: 2px; }
-
 /* Accordions (details/summary) ---------------------------- */
 .accordion summary {
   display: flex;
@@ -472,10 +468,46 @@ strong { font-weight: 700; }
   padding-top: 13px;
 }
 .services-head .h2-serif { padding-top: 0; }
-.services-head p {
-  max-width: 300px;
-  font-size: 14px;
-  line-height: 25.2px;
+
+/* Uniform Connectedness: алхмуудыг нэг шугамаар холбоно */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(480px, 100%);
+  padding-top: 6px;
+}
+.flow li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 14px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.flow li::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 28px;
+  right: 0;
+  height: 1px;
+  background: #aebfaa;
+}
+.flow li:last-child::before { display: none; }
+.flow-num {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #aebfaa;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .cards {
@@ -523,12 +555,15 @@ strong { font-weight: 700; }
 
 .card .accordion-sm { margin-bottom: 26px; }
 
-.card-price {
+/* Common Region: үнэ + товч нэг хүрээнд */
+.card-book {
   margin-top: auto;
-  min-height: 151px;
-  padding: 24px 0 12px;
-  border-top: 1px solid var(--line);
+  padding: 18px 18px 18px;
+  border: 1px solid #d3dccd;
+  border-radius: 10px;
+  background: var(--surface-faq);
 }
+.card-price { min-height: 108px; }
 .card-price strong {
   display: block;
   color: var(--ink);
@@ -543,7 +578,7 @@ strong { font-weight: 700; }
   font-size: 12px;
   line-height: 21.6px;
 }
-.card .btn-block { margin-top: 14px; }
+.card .btn-block { margin-top: 12px; }
 
 /* Values --------------------------------------------------- */
 .values {
@@ -551,24 +586,19 @@ strong { font-weight: 700; }
   border-radius: 16px;
   background: var(--surface-values);
 }
-.values-title {
-  padding-top: 13px;
-  color: #000;
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 1.595px;
-}
 
 .values-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 40px;
+  gap: 16px;
   padding-top: 28px;
 }
+/* Common Region: үнэ цэн бүр өөрийн хүрээтэй */
 .value {
-  padding: 25px 0 10px;
-  border-top: 1px solid #c6d1c1;
+  padding: 24px 26px 26px;
+  border: 1px solid #d3dccd;
+  border-radius: 12px;
+  background: var(--surface-faq);
 }
 .value-num {
   display: grid;
@@ -582,15 +612,12 @@ strong { font-weight: 700; }
   font-weight: 650;
   line-height: 16.5px;
 }
-.value-title,
-.value-title-sans { max-width: 440px; padding-top: 10px; }
-.value-title { font-size: 27px; line-height: 32.4px; letter-spacing: -0.945px; }
-.value-title-sans {
-  color: #000;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  letter-spacing: -0.07em;
+.value-title {
+  max-width: 440px;
+  padding-top: 10px;
+  font-size: 27px;
+  line-height: 32.4px;
+  letter-spacing: -0.945px;
 }
 .value p {
   padding-top: 12px;
@@ -728,14 +755,6 @@ strong { font-weight: 700; }
   border-radius: 14px;
   background: var(--surface-panel);
 }
-.formats-title {
-  padding: 20px 0 50px;
-  color: #000;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-}
 .formats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -758,15 +777,15 @@ strong { font-weight: 700; }
   line-height: 18.15px;
   letter-spacing: 1.32px;
 }
-.format-title-sans,
 .format-title-serif {
-  padding-top: 17px;
+  padding-top: 19px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 400;
   font-size: 29px;
   line-height: 31.32px;
   letter-spacing: -1.015px;
 }
-.format-title-sans { color: #000; font-weight: 700; }
-.format-title-serif { color: var(--ink); font-family: var(--serif); font-weight: 400; padding-top: 19px; }
 .format p {
   max-width: 460px;
   padding: 14px 0 21px;
@@ -839,6 +858,28 @@ strong { font-weight: 700; }
   color: var(--ink);
   font-weight: 700;
 }
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-line + .contact-line { margin-top: 4px; }
+.contact-icon {
+  flex: none;
+  fill: none;
+  stroke: var(--symbol);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .footer-contact a { color: var(--ink); }
 .footer-contact a:hover { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
 
@@ -899,7 +940,6 @@ strong { font-weight: 700; }
   .faq { gap: 28px; padding: 64px 0; }
 
   .formats { padding: 32px 24px; }
-  .formats-title { padding-bottom: 0; }
   .formats-grid { grid-template-columns: 1fr; gap: 28px; }
   .format { padding-right: 0; }
   .format + .format {
