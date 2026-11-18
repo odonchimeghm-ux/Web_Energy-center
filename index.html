@@ -9,8 +9,14 @@
   <link rel="apple-touch-icon" href="assets/images/logo-mark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..800;1,700..800&family=Lora:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..800;1,700..800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      document.documentElement.classList.add('reveal-on');
+    }
+  </script>
+  <script src="script.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Агуулга руу очих</a>
@@ -51,6 +57,17 @@
           <p>Сэтгэл зовоосон асуудлаасаа салж чадахгүй, яах учраа олохгүй, хэн нэгэнтэй яримаар байвч, ярилцах хүн байхгүй, хэрхэн ярихаа мэдэхгүй. Яг тэр зүйл л байнга бодогдсоор байна уу?</p>
           <p>Бид таныг мэргэжлийн ёс зүй бүхий тав тухтай, аюулгүй орчинд, өөрийгөө чөлөөтэй илэрхийлж, нинж сэтгэл, итгэлцэл дээр тулгуурлан сэтгэл эдгэрэл хийхэд тань тусална.</p>
           <p class="hero-signature">Б. Одончимэг<br>Сэтгэл зүйч, эерэг сэтгэл заслын зөвлөх</p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-hero" href="tel:88116562">
+            Зөвлөгөөний цаг захиалах
+            <img src="assets/icons/arrow-light.svg" alt="" width="14" height="14">
+          </a>
+          <a class="text-link" href="#free-call">
+            Эхлээд 30 минутын үнэгүй ярилцлага
+            <img src="assets/icons/arrow-dark.svg" alt="" width="14" height="14">
+          </a>
         </div>
 
         <hr class="hero-divider">
@@ -383,7 +400,7 @@
         </div>
 
         <!-- Secondary: free 30-min intro call -->
-        <div class="cta-alt">
+        <div class="cta-alt" id="free-call">
           <h3 class="cta-alt-title">Эхлээд зөвлөгөөний явцтай танилцахыг хүсвэл</h3>
           <p>«Таныг сонсъё» бол <strong>30 минутын үнэ төлбөргүй</strong> ганцаарчилсан онлайн уулзалт. Танд юу хэрэгтэй байгааг товч ярилцаж, зөвлөгөө хэрхэн явагддаг талаар асуултад тань хариулна. Цаашид зөвлөгөө авах эсэхийг та өөрөө шийднэ.</p>
           <a class="btn btn-outline" href="#">

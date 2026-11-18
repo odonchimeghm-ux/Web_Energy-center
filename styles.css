@@ -250,20 +250,40 @@ strong { font-weight: 700; }
   letter-spacing: -0.06em;
 }
 
+/* Хэмжээ: нүүрний оршил бусад энгийн текстээс том */
 .hero-intro {
-  max-width: 520px;
+  max-width: 540px;
   padding-top: 38px;
-  font-size: 15px;
-  line-height: 26.25px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+/* Өнгө + Тодрол: нээлтийн асуулт */
+.hero-intro p:first-child {
+  color: var(--green);
+  font-weight: 650;
 }
 /* Proximity: асуулт ба асуудал нэг бүлэг, хариулт тусдаа, гарын үсэг хамгийн хол */
 .hero-intro p + p { margin-top: 16px; }
 .hero-intro p:first-child + p { margin-top: 4px; }
 .hero-intro .hero-signature { margin-top: 28px; }
 
+/* Байрлал: гол үйлдэл нүүр хэсэгт, эхний харагдах талбарт */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 24px;
+  padding-top: 32px;
+}
+.btn-hero {
+  min-height: 50px;
+  padding: 12px 22px;
+  font-size: 15px;
+}
+
 .hero-divider {
   max-width: 480px;
-  margin: 63px 0 0;
+  margin: 44px 0 0;
   border: 0;
   border-top: 1px solid var(--line);
 }
@@ -563,14 +583,15 @@ strong { font-weight: 700; }
   border-radius: 10px;
   background: var(--surface-faq);
 }
-.card-price { min-height: 108px; }
+.card-price { min-height: 104px; }
+/* Хэмжээ + Өнгө: үнэ гарчгаас жижиг, ногоон */
 .card-price strong {
   display: block;
-  color: var(--ink);
+  color: var(--green);
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 35px;
-  line-height: 57.75px;
+  font-size: 28px;
+  line-height: 1.4;
 }
 .card-price small {
   display: block;
@@ -626,13 +647,17 @@ strong { font-weight: 700; }
 }
 
 /* Quote ---------------------------------------------------- */
+/* Налуу + Өнгө: зөөлөн, дулаан ишлэл */
 .quote {
+  max-width: 820px;
   padding-top: 80px;
-  color: #000;
-  font-size: clamp(20px, 2.2vw, 24px);
-  font-weight: 700;
-  line-height: 1.6;
-  letter-spacing: -0.07em;
+  color: var(--green);
+  font-family: var(--lora);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
 }
 
 /* Results -------------------------------------------------- */
@@ -802,7 +827,11 @@ strong { font-weight: 700; }
   margin-top: 24px;
   padding: 48px 44px;
   border-radius: 14px;
-  background: var(--green-deep);
+  /* Хээ: бараг үл анзаарагдах зөөлөн гэрэлтэлт */
+  background:
+    radial-gradient(circle at 88% 10%, rgba(216, 223, 208, .12), transparent 45%),
+    radial-gradient(circle at 6% 100%, rgba(124, 149, 125, .22), transparent 50%),
+    var(--green-deep);
   color: #e5eadf;
 }
 .cta-title {
@@ -898,6 +927,36 @@ strong { font-weight: 700; }
   line-height: 19.8px;
 }
 
+/* Motion --------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Карт дээр хулгана очиход бага зэрэг өргөгдөнө */
+  .card { transition: transform .25s ease, filter .25s ease; }
+  @media (hover: hover) {
+    .card:hover {
+      transform: translateY(-3px);
+      filter: drop-shadow(0 6px 0 #dce3d5);
+    }
+  }
+
+  /* Хэсгүүд аажмаар тодорно (script.js) */
+  .reveal-on .about,
+  .reveal-on .services,
+  .reveal-on .values,
+  .reveal-on .quote,
+  .reveal-on .results,
+  .reveal-on .faq,
+  .reveal-on .formats,
+  .reveal-on .cta {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal-on .is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Responsive ----------------------------------------------- */
 @media (max-width: 1100px) {
   .header-inner { flex-wrap: wrap; padding: 14px 0; }
@@ -964,6 +1023,7 @@ strong { font-weight: 700; }
 @media (max-width: 640px) {
   :root { --gutter: 16px; }
   .btn-header { width: 100%; }
+  .btn-hero { width: 100%; justify-content: space-between; }
   .cards { grid-template-columns: 1fr; }
   .card { padding: 22px; }
   .card-title { min-height: 0; font-size: 30px; line-height: 1.15; }
