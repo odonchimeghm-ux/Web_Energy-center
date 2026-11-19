@@ -258,13 +258,8 @@ strong { font-weight: 700; }
   line-height: 1.7;
 }
 /* Өнгө + Тодрол: нээлтийн асуулт */
-.hero-intro p:first-child {
-  color: var(--green);
-  font-weight: 650;
-}
-/* Proximity: асуулт ба асуудал нэг бүлэг, хариулт тусдаа, гарын үсэг хамгийн хол */
+/* Proximity: асуудал ба хариулт тусдаа, гарын үсэг хамгийн хол */
 .hero-intro p + p { margin-top: 16px; }
-.hero-intro p:first-child + p { margin-top: 4px; }
 .hero-intro .hero-signature { margin-top: 28px; }
 
 /* Байрлал: гол үйлдэл нүүр хэсэгт, эхний харагдах талбарт */
