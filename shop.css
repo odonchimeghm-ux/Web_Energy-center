@@ -160,11 +160,36 @@
   margin: 0;
   padding: 56px 0;
 }
+/* Emphasis: ном — хуудасны гол цэг.
+   Хээ: Figma-ийн «stage-curve» нуман дэвсгэр; Тодрол: зөөлөн сүүдэр */
+.s-book-arch {
+  position: relative;
+  isolation: isolate;
+  display: block;
+}
+.s-book-arch::before {
+  content: "";
+  position: absolute;
+  inset: -44px -40px -28px;
+  z-index: -1;
+  border-radius: 999px 999px var(--r-md) var(--r-md);
+  background: linear-gradient(180deg, #edf2e6 0%, #f5f8f1 72%, rgba(245, 248, 241, 0) 100%);
+}
 .s-book-cover {
   width: 340px;
   height: auto;
   aspect-ratio: 339.96 / 443.91;
   border-radius: 2px 4px 4px 2px;
+  box-shadow: 0 22px 34px -18px rgba(28, 52, 40, .45), 0 2px 6px rgba(28, 52, 40, .12);
+}
+
+/* Налуу: гол санааг илэрхийлэх ганц хэллэг Lora налуугаар */
+.page-shop main em {
+  color: #5f7a52;
+  font-family: var(--lora);
+  font-size: 1.06em;
+  font-style: italic;
+  font-weight: 400;
 }
 .s-book-topics {
   color: #5b755e;
@@ -216,9 +241,9 @@
 }
 .s-price {
   color: var(--s-ink);
-  font-size: 32px;
+  font-size: 36px;   /* Хэмжээ: үнэ — худалдан авалтын гол тоо */
   font-weight: 600;
-  line-height: 38.4px;
+  line-height: 42px;
   letter-spacing: -.06em;
 }
 .s-price span { font-size: 23px; font-weight: 400; }
@@ -413,6 +438,19 @@
   border-radius: var(--r-md);
   background: #fffcf3;
 }
+/* Хээ + Өнцөг: баруун дээд буланд бүдэг, хазайсан бэлгийн икон */
+.s-offer::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 58px;
+  height: 58px;
+  background: url("assets/shop/icon-gift.svg") center / contain no-repeat;
+  opacity: .1;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
 .s-gift-msg {
   display: flex;
   align-items: center;
@@ -420,8 +458,8 @@
 .s-gift-price {
   flex: none;
   padding-right: 24px;
-  color: #45663f;
-  font-size: 26px;
+  color: #3f6139;
+  font-size: 28px;   /* Хэмжээ + Өнгө: бэлгийн гол мэдээлэл */
   font-weight: 600;
   line-height: 39px;
   letter-spacing: -.05em;
@@ -531,7 +569,8 @@
   height: 325px;
   padding: 0;
   border: 0;
-  background: #fff;
+  /* Хээ: дэвтрийн цэгэн цаас */
+  background: #fff radial-gradient(circle, #e1e7d9 1px, transparent 1.3px) 0 0 / 14px 14px;
   overflow: hidden;
   cursor: zoom-in;
 }
@@ -569,7 +608,20 @@
   font-size: 21px;
   line-height: 31.5px;
 }
-.s-inside-caption p {
+/* Hierarchy: төрөл (pill) → гарчиг → тайлбар */
+.s-inside-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 1px 10px;
+  border-radius: var(--r-pill);
+  background: #e8eedf;
+  color: #4d6a45;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: .02em;
+}
+.s-inside-caption p:not(.s-inside-tag) {
   margin-top: 4px;
   color: #778570;
   font-size: 13px;
@@ -658,6 +710,35 @@
 @media (prefers-reduced-motion: no-preference) {
   .s-gallery-main img { transition: opacity .25s ease; }
   .s-gallery-main img.is-swapping { opacity: 0; }
+
+  /* Хөдөлгөөн + Өнцөг: зөвхөн hover үед, бага зэрэг */
+  .s-book-cover { transition: transform .4s ease, box-shadow .4s ease; }
+  .s-offer { transition: box-shadow .3s ease; }
+  .s-offer::after,
+  .s-offer .s-gift-icon { transition: transform .35s ease; }
+  .s-inside-card { transition: box-shadow .3s ease; }
+  .s-inside-photo img { transition: transform .5s ease; }
+  @media (hover: hover) {
+    .s-book:hover .s-book-cover {
+      transform: translateY(-4px) rotate(-1.5deg);
+      box-shadow: 0 30px 40px -20px rgba(28, 52, 40, .5), 0 2px 6px rgba(28, 52, 40, .12);
+    }
+    .s-offer:hover { box-shadow: 0 14px 30px rgba(110, 90, 40, .09); }
+    .s-offer:hover::after { transform: rotate(-4deg); }
+    .s-offer:hover .s-gift-icon { transform: rotate(-8deg); }
+    .s-inside-card:hover { box-shadow: 0 14px 30px rgba(25, 62, 51, .09); }
+    /* Зураг дээш гулсаж хуудасны дараагийн хэсгийг харуулна */
+    .s-inside-card:hover .s-inside-photo img { transform: translate(-50%, -14px); }
+  }
+
+  /* Карт ээлжлэн гарч ирнэ (0 / 120ms) */
+  .reveal-on .s-inside .s-inside-card {
+    opacity: 0;
+    translate: 0 16px;
+    transition: opacity .6s ease var(--d, .1s), translate .6s ease var(--d, .1s), box-shadow .3s ease;
+  }
+  .reveal-on .s-inside .s-inside-card:nth-child(2) { --d: .22s; }
+  .reveal-on .s-inside.is-visible .s-inside-card { opacity: 1; translate: none; }
 
   .reveal-on .s-reveal {
     opacity: 0;

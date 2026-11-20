@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="assets/images/logo-mark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Manrope:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Manrope:wght@400..700&family=Lora:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="shop.css">
   <script>
@@ -62,7 +62,10 @@
     <!-- Book -->
     <section id="book" class="s-wrap s-book s-reveal" aria-labelledby="s-book-title">
       <figure class="s-book-stage">
-        <img class="s-book-cover" src="assets/shop/book-cover.png" alt="Б. Болормаагийн «Мэдрэлийн тогтолцоогоо чадавхжуулах нь» номын ногоон хавтас" width="340" height="444">
+        <!-- Emphasis: ном гол цэг — нуман дэвсгэр (хээ), сүүдэр (тодрол), hover-т хазайна (өнцөг) -->
+        <span class="s-book-arch">
+          <img class="s-book-cover" src="assets/shop/book-cover.png" alt="Б. Болормаагийн «Мэдрэлийн тогтолцоогоо чадавхжуулах нь» номын ногоон хавтас" width="340" height="444">
+        </span>
         <!-- Proximity: тайлбар номын хавтасны шууд доор -->
         <figcaption class="s-book-topics">Бие даан сурах · Көүчинг · Сэтгэл зүй</figcaption>
       </figure>
@@ -71,7 +74,7 @@
         <p class="s-eyebrow">ПРАКТИК ГАРЫН АВЛАГА</p>
         <h2 id="s-book-title" class="s-book-title">Мэдрэлийн<br>тогтолцоогоо<br><span>чадавхжуулах нь</span></h2>
         <p class="s-book-author">Б. Болормаа</p>
-        <p class="s-book-lead">Өөрчлөлт заримдаа илүү их хичээхээс бус, удааширч, өөрийгөө сонсохоос эхэлдэг.</p>
+        <p class="s-book-lead">Өөрчлөлт заримдаа илүү их хичээхээс бус, удааширч, <em>өөрийгөө сонсохоос</em> эхэлдэг.</p>
         <p class="s-book-text">Биеийнхээ дохиог анзаарч, мэдрэмж, хариу үйлдлээ ойлгон, өөртэйгөө илүү энэрэнгүй харилцахад чиглэсэн бие даан сурах, көүчинг, сэтгэл зүйн практик гарын авлага.</p>
         <!-- Similarity: үзүүлэлтүүд дэвтрийнхтэй ижил хайрцагтай -->
         <ul class="s-specs s-book-meta" aria-label="Номын үзүүлэлт">
@@ -216,8 +219,9 @@
             </span>
           </button>
           <div class="s-inside-caption">
+            <p class="s-inside-tag">Эргэцүүлэх дасгал</p>
             <h3>Амьдралын тэнцвэр</h3>
-            <p>Одоо хаана явж байгаагаа анзаарах</p>
+            <p>Одоо <em>хаана явж байгаагаа</em> анзаарах</p>
           </div>
         </article>
         <article class="s-inside-card">
@@ -228,8 +232,9 @@
             </span>
           </button>
           <div class="s-inside-caption">
+            <p class="s-inside-tag">Төлөвлөх хуудас</p>
             <h3>Төслийн зураглал</h3>
-            <p>Бодлоо нэг зурагт буулгах</p>
+            <p>Бодлоо <em>нэг зурагт</em> буулгах</p>
           </div>
         </article>
       </div>
