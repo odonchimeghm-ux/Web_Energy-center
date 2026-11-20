@@ -1,0 +1,843 @@
+/* =========================================================
+   Энержи сэтгэл зүйн төв — Бүлгийн уулзалт (ном)
+   Figma: k20hbvWyoonhasNwlbFVfr · node 0:2
+   Нийтлэг header/footer, үсгийн суурь нь styles.css-ээс.
+   ========================================================= */
+
+.page-meeting {
+  --m-ink: #244a3b;
+  --m-accent: #82946b;
+  --m-eyebrow: #70876c;
+  --m-btn: #244a3b;
+  --m-btn-hover: #1a382c;
+  --m-text: #687367;
+  --manrope: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  background: #f8f6ef;
+  color: var(--m-text);
+  font-family: var(--manrope);
+}
+
+/* Header & footer нь styles.css-ийн Inter фонтыг хадгална */
+.page-meeting .site-header { background: #faf9f4; }
+.page-meeting .site-header,
+.page-meeting .site-footer { font-family: var(--sans); }
+.page-meeting .main-nav a[aria-current="page"] { font-weight: 700; }
+.page-meeting .skip-link { font-family: var(--manrope); }
+
+.m-wrap {
+  width: min(var(--container), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+/* Shared --------------------------------------------------- */
+.m-eyebrow {
+  color: var(--m-eyebrow);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 19.2px;
+  letter-spacing: .06em;
+}
+.m-eyebrow-sm {
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: .13em;
+}
+
+.m-hero-title,
+.m-about-title,
+.m-program-title,
+.m-library-title,
+.m-join-title {
+  margin: 0;
+  color: var(--m-ink);
+  font-weight: 500;
+  letter-spacing: -.055em;
+}
+.m-hero-title span,
+.m-program-title span,
+.m-library-title span,
+.m-join-title span { color: var(--m-accent); }
+
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 55px;
+  padding: 0 24px;
+  border: 1px solid var(--m-btn);
+  border-radius: 5px;
+  background: var(--m-btn);
+  color: #fff;
+  font: 700 14px/21px var(--manrope);
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, opacity .2s ease;
+}
+.m-btn:hover { background: var(--m-btn-hover); border-color: var(--m-btn-hover); }
+.m-btn-block { width: 100%; }
+
+.m-btn:focus-visible,
+.m-text-link:focus-visible,
+.m-filter:focus-visible,
+.m-pill:focus-visible,
+.m-round:focus-visible,
+.m-book-cover:focus-visible,
+.m-dialog-close:focus-visible {
+  outline: 2px solid var(--m-ink);
+  outline-offset: 3px;
+}
+
+/* 02 · Танилцуулга ----------------------------------------- */
+.m-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 530px);
+  align-items: center;
+  column-gap: 64px;
+  padding: 76px 0 80px;
+}
+
+.m-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+/* Figma-д гарчгийн өмнө 36px зай үлдээсэн — нимгэн зураасаар дүүргэв */
+.m-hero-eyebrow::before {
+  content: "";
+  flex: none;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.m-hero-title {
+  font-size: 55.883px;
+  line-height: 64.824px;
+  white-space: nowrap;
+}
+
+.m-hero-lead {
+  margin: 27px 0 0;
+  color: var(--m-ink);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 32.3px;
+  letter-spacing: -.03em;
+}
+
+.m-hero-text {
+  margin: 17px 0 0;
+  font-size: 15px;
+  line-height: 28.5px;
+}
+
+.m-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px 24px;
+  margin-top: 28.5px;
+}
+.m-text-link {
+  margin-bottom: 2.6px;
+  padding: 2px 0 1px;
+  border-bottom: 1px solid #b8c2ae;
+  color: #627a58;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 22.75px;
+  transition: color .2s ease, border-color .2s ease;
+}
+.m-text-link:hover { color: var(--m-ink); border-color: var(--m-ink); }
+
+.m-next {
+  max-width: 510px;
+  margin-top: 24px;
+  padding-top: 19px;
+  border-top: 1px solid #d5decb;
+}
+.m-next p { margin: 0; }
+.m-next-label { color: #65745a; font-size: 14px; line-height: 24.5px; }
+.m-next .m-next-date {
+  margin-top: 5px;
+  color: #294d3c;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+}
+.m-next .m-next-note { margin-top: 5px; color: #6b785f; font-size: 13px; line-height: 22.75px; }
+
+.m-hero-art {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 110px 110px 18px 18px;
+  background: #dce8df;
+  aspect-ratio: 530.2 / 662.75;
+}
+.m-hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 03 · Хуваарь, төлбөр ------------------------------------- */
+.m-band { background: #244a3b; }
+.m-band-list {
+  display: grid;
+  grid-template-columns: 375.6fr 268.3fr 187.8fr 268.3fr;
+  gap: 28px;
+  margin-block: 0;
+  padding: 26px 0;
+}
+.m-band-list div + div {
+  padding-left: 28px;
+  border-left: 1px solid rgba(255, 255, 255, .16);
+}
+.m-band-list dt {
+  color: #c4d0b7;
+  font-size: 13px;
+  line-height: 20.8px;
+}
+.m-band-list dd {
+  margin: 7px 0 0;
+  color: #fafbed;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 28.5px;
+  letter-spacing: -.03em;
+}
+
+/* 04 · Далайн дэвсгэр -------------------------------------- */
+.m-ocean {
+  padding: 72px 0 76px;
+  background:
+    linear-gradient(143.36deg, rgba(247, 246, 237, .44) 0%, rgba(247, 246, 237, .082) 50%, rgba(230, 242, 229, .14) 100%),
+    url("assets/meeting/ocean.png") center / cover no-repeat,
+    #a9d5d8;
+}
+
+.m-about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 557px);
+  gap: 48px;
+  align-items: start;
+}
+.m-about-head { padding-top: 24px; }
+.m-about-head .m-eyebrow { margin: 0 0 18px; color: #3d634f; }
+.m-about-title {
+  color: #214b3d;
+  font-size: 49.068px;
+  line-height: 56.919px;
+}
+.m-about-title span { color: #3c715d; }
+
+.m-about-card {
+  padding: 30px 32px 31px;
+  border: 1px solid rgba(255, 255, 255, .61);
+  border-radius: 20px;
+  background: rgba(251, 250, 242, .93);
+  color: #4e6458;
+  font-size: 16px;
+  line-height: 29.6px;
+}
+.m-about-card p { margin: 0; }
+.m-about-card p + p { margin-top: 20px; }
+.m-about-card .m-about-invite {
+  padding-left: 20px;
+  border-left: 2px solid #9aa778;
+}
+
+.m-program {
+  margin-top: 44px;
+  padding: 31px 36px 30px;
+  border: 1px solid rgba(255, 255, 255, .69);
+  border-radius: 22px;
+  background: rgba(251, 250, 242, .94);
+}
+.m-program-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+  padding-bottom: 26.7px;
+}
+.m-program-head .m-eyebrow { margin: 0 0 5px; color: #567155; }
+.m-program-title {
+  font-size: 40px;
+  line-height: 46.4px;
+}
+.m-program-title span { white-space: nowrap; }
+
+.m-program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block: 1px solid #d9dece;
+}
+.m-program-grid li { padding: 33px 0 34px; }
+.m-program-grid li + li {
+  padding-left: 35px;
+  border-left: 1px solid #d9dece;
+}
+.m-program-time {
+  margin: 0;
+  color: #697d50;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24.5px;
+  letter-spacing: .035em;
+}
+.m-program-grid h3 {
+  margin: 16px 0 0;
+  color: var(--m-ink);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 28.5px;
+  letter-spacing: -.04em;
+}
+.m-program-grid h3 + p {
+  margin: 13px 0 0;
+  color: #556a5b;
+  font-size: 15px;
+  line-height: 27.75px;
+}
+.m-program-note {
+  margin: 18px 0 0;
+  color: #536d5b;
+  font-size: 14px;
+  line-height: 24.5px;
+}
+
+/* 05 · Номын тавиур ---------------------------------------- */
+.m-library {
+  padding: 72px 0 63px;
+  background: linear-gradient(144.36deg, #eaf0e3 0%, #f3f4e9 50%, #e4ebd9 100%);
+}
+
+.m-library-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 470px);
+  align-items: end;
+  gap: 24px 48px;
+}
+.m-library-head .m-eyebrow { margin: 0 0 18px; }
+.m-library-title {
+  font-size: 54px;
+  line-height: 62.64px;
+}
+.m-library-text {
+  margin: 0 0 5.5px;
+  color: #6e7b65;
+  font-size: 16px;
+  line-height: 29.6px;
+}
+
+.m-tools {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-top: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #cbd4c2;
+}
+.m-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.m-filter {
+  min-height: 42.4px;
+  padding: 0 13px;
+  border: 1px solid #ced7c4;
+  border-radius: 4px;
+  background: transparent;
+  color: #506848;
+  font: 400 14px/22.4px var(--manrope);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.m-filter:hover { border-color: #94a389; color: var(--m-ink); }
+.m-filter[aria-pressed="true"] {
+  border-color: #294d3a;
+  background: #294d3a;
+  color: #fff;
+}
+.m-filter-count { margin-left: 6px; }
+
+.m-search {
+  position: relative;
+  flex: 0 0 240px;
+}
+.m-search-icon {
+  position: absolute;
+  top: 9px;
+  left: 13px;
+  color: var(--m-ink);
+  font-size: 24px;
+  line-height: 24px;
+  pointer-events: none;
+}
+.m-search input {
+  width: 100%;
+  height: 43.2px;
+  padding: 0 12px 0 35.5px;
+  border: 1px solid #cad3c0;
+  border-radius: 4px;
+  background: #f8faf3;
+  color: var(--m-ink);
+  font: 400 14px/19.6px var(--manrope);
+}
+.m-search input::placeholder { color: #808b79; opacity: 1; }
+.m-search input:focus { outline: 2px solid var(--m-ink); outline-offset: 1px; }
+
+.m-shelf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+}
+.m-result {
+  margin: 0;
+  color: #748168;
+  font-size: 14px;
+  line-height: 24.5px;
+}
+.m-shelf-controls { display: flex; gap: 8px; }
+.m-pill,
+.m-round {
+  height: 42px;
+  border: 1px solid #bbc9ad;
+  background: rgba(248, 250, 239, .7);
+  color: #2f513b;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.m-pill {
+  min-width: 135px;
+  padding: 0 20px;
+  border-radius: 30px;
+  font: 400 14px/24.5px var(--manrope);
+}
+.m-round {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  padding: 0;
+  border-radius: 50%;
+}
+.m-round img { display: block; width: 5.1px; height: 10.2px; }
+.m-pill:hover,
+.m-round:hover { border-color: #8fa184; background: #fff; }
+.m-shelf-controls[hidden] { display: none; }
+
+.m-shelf {
+  margin-top: 28px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.m-shelf::-webkit-scrollbar { display: none; }
+
+.m-books {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0 0 4px;
+  list-style: none;
+}
+.m-book {
+  flex: 0 0 204px;
+  scroll-snap-align: start;
+}
+.m-book[hidden] { display: none; }
+
+.m-book-cover {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 278px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.m-book-cover img {
+  width: auto;
+  max-width: 100%;
+  height: 278px;
+  object-fit: contain;
+}
+
+.m-book-cat {
+  margin: 29px 0 0;
+  color: #687e58;
+  font-size: 12px;
+  line-height: 19.2px;
+  letter-spacing: .03em;
+}
+.m-book-title {
+  margin: 9px 0 0;
+  color: var(--m-ink);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24.65px;
+  letter-spacing: -.025em;
+}
+.m-book-author {
+  margin: 7.8px 0 0;
+  color: #6e7d62;
+  font-size: 13px;
+  line-height: 22.1px;
+}
+
+.m-empty {
+  margin: 0;
+  padding: 48px 0;
+  color: #6e7b65;
+  font-size: 15px;
+}
+
+.m-library-hint {
+  margin: 55px 0 0;
+  color: #6a7b60;
+  font-size: 13px;
+  line-height: 23.4px;
+}
+
+/* Номын дэлгэрэнгүй цонх */
+.m-book-dialog {
+  width: min(640px, 100% - 32px);
+  padding: 36px;
+  border: 1px solid #e2e4d8;
+  border-radius: 14px;
+  background: #fffefa;
+  color: var(--m-text);
+  font-family: var(--manrope);
+}
+.m-book-dialog::backdrop { background: rgba(28, 45, 36, .55); }
+.m-dialog-body {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.m-dialog-cover {
+  width: 100%;
+  height: auto;
+}
+.m-dialog-info .m-book-cat { margin-top: 0; }
+.m-dialog-title {
+  margin: 8px 0 0;
+  color: var(--m-ink);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: -.03em;
+}
+.m-dialog-text {
+  margin: 16px 0 20px;
+  font-size: 14px;
+  line-height: 24.5px;
+}
+.m-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #dce1d2;
+  border-radius: 50%;
+  background: #fbfcf7;
+  color: var(--m-ink);
+  font: 400 22px/1 var(--manrope);
+  cursor: pointer;
+}
+.m-dialog-close:hover { background: #fff; border-color: #94a389; }
+
+/* 06 · Бүртгэл --------------------------------------------- */
+.m-join {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 542px);
+  justify-content: space-between;
+  gap: 48px;
+  padding: 100px 0;
+}
+.m-join-info .m-eyebrow { margin: 0 0 20px; }
+.m-join-title {
+  font-size: 43px;
+  line-height: 49.88px;
+}
+.m-join-text {
+  margin: 22.7px 0 0;
+  color: #6e7966;
+  font-size: 15px;
+  line-height: 28.5px;
+}
+
+.m-price {
+  margin-top: 28.75px;
+  padding: 21px 0;
+  border-block: 1px solid #d5ddc9;
+}
+.m-price + .m-join-text { margin-top: 23px; }
+.m-price-value {
+  margin: 0;
+  color: #325540;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 45.5px;
+  letter-spacing: -.045em;
+}
+.m-price-note {
+  margin: 10.6px 0 0;
+  color: #65755c;
+  font-size: 14px;
+  line-height: 25.2px;
+}
+
+.m-join-contact {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  max-width: 390px;
+  margin-top: 36px;
+  padding-top: 25px;
+  border-top: 1px solid #d8ddce;
+}
+.m-join-contact-label {
+  margin: 0 0 3px;
+  color: #8a947d;
+  font-size: 11px;
+  line-height: 19.25px;
+}
+.m-join-contact a {
+  color: var(--m-ink);
+  font-size: 14px;
+  line-height: 24.5px;
+}
+.m-join-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.m-form {
+  align-self: start;
+  padding: 34px 35px 35px;
+  border: 1px solid #e2e4d8;
+  border-radius: 7px;
+  background: #fffefa;
+}
+.m-form-eyebrow {
+  margin: 0;
+  color: #849174;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 17.5px;
+  letter-spacing: .1em;
+}
+
+.m-field { margin-top: 15.5px; }
+.m-form-eyebrow + .m-field { margin-top: 20px; }
+.m-field label {
+  display: block;
+  color: #395039;
+  font-size: 14px;
+  line-height: 24.5px;
+}
+.m-req { color: #a78d62; }
+
+.m-field input,
+.m-field select {
+  width: 100%;
+  height: 50.4px;
+  margin-top: 7.75px;
+  padding: 0 12px;
+  border: 1px solid #dce1d2;
+  border-radius: 4px;
+  background-color: #fbfcf7;
+  color: #3f573b;
+  font: 400 14px/19.6px var(--manrope);
+}
+.m-field select {
+  padding-right: 36px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%232F513B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 10px 6px;
+  cursor: pointer;
+}
+.m-field input::placeholder { color: #808b79; opacity: 1; }
+.m-field input:focus,
+.m-field select:focus {
+  border-color: #94a389;
+  outline: 2px solid var(--m-ink);
+  outline-offset: 1px;
+}
+.m-field input[aria-invalid="true"] { border-color: #b0684f; }
+
+.m-hint {
+  margin: 9.6px 0 0;
+  color: #617254;
+  font-size: 14px;
+  line-height: 23.8px;
+}
+.m-error {
+  margin: 6px 0 0;
+  color: #a04f36;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.m-consent {
+  display: grid;
+  grid-template-columns: 13px 1fr;
+  gap: 16px;
+  margin-top: 23.3px;
+  padding-left: 4px;
+}
+/* Figma-д зөвшөөрлийн мөрүүд картын дотор зайд бага зэрэг орсон */
+@media (min-width: 1181px) {
+  .m-consent { margin-right: -16px; }
+}
+.m-consent input {
+  width: 13px;
+  height: 13px;
+  margin: 4.7px 0 0;
+  accent-color: var(--m-ink);
+  cursor: pointer;
+}
+.m-consent label {
+  color: #78826b;
+  font-size: 13px;
+  line-height: 23.4px;
+  cursor: pointer;
+}
+
+.m-submit { margin-top: 23.7px; }
+/* Figma: шаардлагатай талбар бөглөгдөөгүй үед товч бүдэг */
+.m-form.is-incomplete .m-submit { opacity: .6; }
+.m-form.is-incomplete .m-submit:hover { background: var(--m-btn); border-color: var(--m-btn); }
+
+.m-status {
+  margin: 0;
+  color: var(--m-ink);
+  font-size: 13px;
+  line-height: 21px;
+}
+.m-status:not(:empty) { margin-top: 12px; }
+
+.m-form-note {
+  margin: 12.7px 0 0;
+  color: #96a08b;
+  font-size: 12px;
+  line-height: 21.6px;
+}
+
+/* Footer --------------------------------------------------- */
+.m-footer-wrap { background: #faf9f4; }
+
+.m-contact-icon {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.m-contact-icon img { position: absolute; max-width: none; }
+.m-icon-phone { left: 1.47px; top: 2.13px; }
+.m-icon-mail-box { left: 1.47px; top: 2.8px; }
+.m-icon-mail-flap { left: 1.47px; top: 4.13px; }
+
+/* Motion --------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .m-shelf { scroll-behavior: smooth; }
+
+  @media (hover: hover) {
+    .m-book-cover img { transition: transform .35s ease; }
+    .m-book-cover:hover img { transform: translateY(-6px); }
+  }
+
+  .reveal-on .m-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal-on .m-reveal.is-visible { opacity: 1; transform: none; }
+}
+
+/* Responsive ----------------------------------------------- */
+@media (max-width: 1180px) {
+  .m-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 460px); column-gap: 48px; }
+  .m-hero-title { font-size: 48px; line-height: 56px; }
+  .m-br { display: none; }
+  .m-about { grid-template-columns: 1fr 1fr; }
+  .m-library-head { grid-template-columns: 1fr 1fr; }
+  .m-join { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+  .m-hero {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+    padding: 56px 0 64px;
+  }
+  .m-hero-art { width: min(100%, 530px); justify-self: center; border-radius: 80px 80px 16px 16px; }
+
+  .m-band-list { grid-template-columns: 1fr 1fr; row-gap: 20px; }
+  .m-band-list div + div { padding-left: 0; border-left: 0; }
+  .m-band-list div:nth-child(even) { padding-left: 20px; border-left: 1px solid rgba(255, 255, 255, .16); }
+
+  .m-ocean { padding: 56px 0 64px; }
+  .m-about { grid-template-columns: 1fr; gap: 28px; }
+  .m-about-head { padding-top: 0; }
+  .m-about-title { font-size: 40px; line-height: 46px; }
+
+  .m-program { padding: 28px 24px; }
+  .m-program-head { display: block; }
+  .m-program-head .m-eyebrow { margin-bottom: 12px; }
+  .m-program-title { font-size: 32px; line-height: 38px; }
+  .m-program-grid { grid-template-columns: 1fr; }
+  .m-program-grid li { padding: 26px 0; }
+  .m-program-grid li + li { padding-left: 0; border-left: 0; border-top: 1px solid #d9dece; }
+
+  .m-library { padding: 56px 0; }
+  .m-library-head { grid-template-columns: 1fr; }
+  .m-library-title { font-size: 44px; line-height: 50px; }
+  .m-tools { flex-direction: column; align-items: stretch; }
+  .m-filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .m-filters::-webkit-scrollbar { display: none; }
+  .m-search { flex-basis: auto; }
+  .m-library-hint { margin-top: 36px; }
+
+  .m-join { grid-template-columns: 1fr; gap: 40px; padding: 72px 0; }
+  .m-join-title { font-size: 36px; line-height: 42px; }
+}
+
+@media (max-width: 640px) {
+  .m-hero-title { font-size: 40px; line-height: 46px; white-space: normal; }
+  .m-hero-lead { font-size: 17px; line-height: 28px; }
+  .m-hero-actions .m-btn { width: 100%; }
+  .m-hero-art { border-radius: 64px 64px 14px 14px; }
+
+  .m-band-list dd { font-size: 17px; }
+
+  .m-about-card { padding: 24px 20px; font-size: 15px; line-height: 27px; }
+  .m-about-title { font-size: 34px; line-height: 40px; }
+
+  .m-library-title { font-size: 36px; line-height: 42px; }
+  .m-shelf-bar { flex-wrap: wrap; }
+  .m-book { flex-basis: 168px; }
+  .m-book-cover,
+  .m-book-cover img { height: 229px; }
+
+  .m-form { padding: 28px 20px; }
+  .m-book-dialog { padding: 28px 20px; }
+  .m-dialog-body { grid-template-columns: 1fr; justify-items: start; }
+  .m-dialog-cover { width: 120px; }
+}
