@@ -7,10 +7,17 @@
 .page-meeting {
   --m-ink: #244a3b;
   --m-accent: #82946b;
-  --m-eyebrow: #70876c;
+  --m-eyebrow: #5f765b;
   --m-btn: #244a3b;
   --m-btn-hover: #1a382c;
-  --m-text: #687367;
+  --m-text: #566658;    /* Similarity: үндсэн тайлбар текст */
+  --m-muted: #687460;   /* Similarity: туслах, жижиг тэмдэглэл */
+
+  /* Similarity: бөөрөнхийлөлтийн 3 түвшин + pill */
+  --m-r-lg: 22px;   /* том самбар: танилцуулга, хөтөлбөр */
+  --m-r-md: 14px;   /* карт: ном, огноо, үнэ, маягт, цонх */
+  --m-r-sm: 8px;    /* товч, талбар, шүүлтүүр */
+  --m-r-pill: 999px;
   --manrope: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   background: #f8f6ef;
@@ -33,13 +40,8 @@
 /* Shared --------------------------------------------------- */
 .m-eyebrow {
   color: var(--m-eyebrow);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 19.2px;
-  letter-spacing: .06em;
-}
-.m-eyebrow-sm {
   font-size: 11px;
+  font-weight: 700;
   line-height: 17.6px;
   letter-spacing: .13em;
 }
@@ -57,7 +59,8 @@
 .m-hero-title span,
 .m-program-title span,
 .m-library-title span,
-.m-join-title span { color: var(--m-accent); }
+.m-join-title span,
+.m-about-title span { color: var(--m-accent); }
 
 .m-btn {
   display: inline-flex;
@@ -66,7 +69,7 @@
   min-height: 55px;
   padding: 0 24px;
   border: 1px solid var(--m-btn);
-  border-radius: 5px;
+  border-radius: var(--m-r-sm);
   background: var(--m-btn);
   color: #fff;
   font: 700 14px/21px var(--manrope);
@@ -96,20 +99,8 @@
   padding: 76px 0 80px;
 }
 
-.m-hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 24px;
-}
-/* Figma-д гарчгийн өмнө 36px зай үлдээсэн — нимгэн зураасаар дүүргэв */
-.m-hero-eyebrow::before {
-  content: "";
-  flex: none;
-  width: 24px;
-  height: 1px;
-  background: currentColor;
-}
+/* Prägnanz: зураас, догол мөргүй — гарчигтай нэг шулуунд */
+.m-hero-eyebrow { margin: 0 0 24px; }
 
 .m-hero-title {
   font-size: 55.883px;
@@ -142,8 +133,8 @@
 .m-text-link {
   margin-bottom: 2.6px;
   padding: 2px 0 1px;
-  border-bottom: 1px solid #b8c2ae;
-  color: #627a58;
+  border-bottom: 1px solid var(--m-accent);
+  color: var(--m-ink);
   font-size: 13px;
   font-weight: 600;
   line-height: 22.75px;
@@ -151,22 +142,40 @@
 }
 .m-text-link:hover { color: var(--m-ink); border-color: var(--m-ink); }
 
+/* Common Region: огноо, цагийн мэдээлэл нэг зөөлөн картад */
 .m-next {
   max-width: 510px;
   margin-top: 24px;
-  padding-top: 19px;
-  border-top: 1px solid #d5decb;
+  padding: 16px 22px 17px;
+  border: 1px solid #dfe6d6;
+  border-radius: var(--m-r-md);
+  background: #f0f3e9;
 }
 .m-next p { margin: 0; }
-.m-next-label { color: #65745a; font-size: 14px; line-height: 24.5px; }
+.m-next-label { color: var(--m-text); font-size: 14px; line-height: 24.5px; }
 .m-next .m-next-date {
   margin-top: 5px;
-  color: #294d3c;
+  color: var(--m-ink);
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
 }
-.m-next .m-next-note { margin-top: 5px; color: #6b785f; font-size: 13px; line-height: 22.75px; }
+.m-next .m-next-note { margin-top: 5px; color: var(--m-muted); font-size: 13px; line-height: 22.75px; }
+/* Uniform Connectedness: огноо → бүртгэлийн маягт */
+.m-next-link {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 10px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--m-accent);
+  color: var(--m-ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 22.75px;
+}
+.m-next-link span { transition: transform .2s ease; }
+.m-next-link:hover span { transform: translateX(3px); }
+.m-next-link:focus-visible { outline: 2px solid var(--m-ink); outline-offset: 3px; }
 
 .m-hero-art {
   margin: 0;
@@ -175,10 +184,13 @@
   background: #dce8df;
   aspect-ratio: 530.2 / 662.75;
 }
+/* Prägnanz: зургийн доод ногоон зурвасыг нууж, нэг цэвэр нуман хэлбэр */
 .m-hero-art img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.05);
+  transform-origin: 50% 0;
 }
 
 /* 03 · Хуваарь, төлбөр ------------------------------------- */
@@ -224,20 +236,18 @@
   align-items: start;
 }
 .m-about-head { padding-top: 24px; }
-.m-about-head .m-eyebrow { margin: 0 0 18px; color: #3d634f; }
+.m-about-head .m-eyebrow { margin: 0 0 18px; }
 .m-about-title {
-  color: #214b3d;
   font-size: 49.068px;
   line-height: 56.919px;
 }
-.m-about-title span { color: #3c715d; }
 
 .m-about-card {
   padding: 30px 32px 31px;
   border: 1px solid rgba(255, 255, 255, .61);
-  border-radius: 20px;
+  border-radius: var(--m-r-lg);
   background: rgba(251, 250, 242, .93);
-  color: #4e6458;
+  color: var(--m-text);
   font-size: 16px;
   line-height: 29.6px;
 }
@@ -252,7 +262,7 @@
   margin-top: 44px;
   padding: 31px 36px 30px;
   border: 1px solid rgba(255, 255, 255, .69);
-  border-radius: 22px;
+  border-radius: var(--m-r-lg);
   background: rgba(251, 250, 242, .94);
 }
 .m-program-head {
@@ -263,7 +273,7 @@
   flex-wrap: wrap;
   padding-bottom: 26.7px;
 }
-.m-program-head .m-eyebrow { margin: 0 0 5px; color: #567155; }
+.m-program-head .m-eyebrow { margin: 0 0 5px; }
 .m-program-title {
   font-size: 40px;
   line-height: 46.4px;
@@ -271,21 +281,44 @@
 .m-program-title span { white-space: nowrap; }
 
 .m-program-grid {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0;
   padding: 0;
   list-style: none;
-  border-block: 1px solid #d9dece;
+  border-top: 1px solid #d9dece; /* Proximity: доод зураасгүй — тэмдэглэл хөтөлбөртөө наалдана */
 }
-.m-program-grid li { padding: 33px 0 34px; }
+.m-program-grid li { position: relative; padding: 33px 0 26px; }
 .m-program-grid li + li {
   padding-left: 35px;
   border-left: 1px solid #d9dece;
 }
+/* Uniform Connectedness: 30 → 60 минутыг нэг шугамаар холбосон дараалал */
+.m-program-grid::before {
+  content: "";
+  position: absolute;
+  top: -1.5px;
+  left: 0;
+  width: calc(50% + 35px);
+  height: 2px;
+  background: var(--m-accent);
+}
+.m-program-grid li::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--m-ink);
+  box-shadow: 0 0 0 3px #fbfaf2;
+}
+.m-program-grid li + li::before { left: 35px; }
 .m-program-time {
   margin: 0;
-  color: #697d50;
+  color: var(--m-eyebrow);
   font-size: 14px;
   font-weight: 700;
   line-height: 24.5px;
@@ -301,20 +334,22 @@
 }
 .m-program-grid h3 + p {
   margin: 13px 0 0;
-  color: #556a5b;
+  color: var(--m-text);
   font-size: 15px;
   line-height: 27.75px;
 }
 .m-program-note {
-  margin: 18px 0 0;
-  color: #536d5b;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px dashed #d9dece;
+  color: var(--m-text);
   font-size: 14px;
   line-height: 24.5px;
 }
 
 /* 05 · Номын тавиур ---------------------------------------- */
 .m-library {
-  padding: 72px 0 63px;
+  padding: 72px 0 76px;
   background: linear-gradient(144.36deg, #eaf0e3 0%, #f3f4e9 50%, #e4ebd9 100%);
 }
 
@@ -331,7 +366,7 @@
 }
 .m-library-text {
   margin: 0 0 5.5px;
-  color: #6e7b65;
+  color: var(--m-text);
   font-size: 16px;
   line-height: 29.6px;
 }
@@ -345,27 +380,44 @@
   padding-bottom: 18px;
   border-bottom: 1px solid #cbd4c2;
 }
+/* Uniform Connectedness: 5 шүүлтүүр нэг хүрээнд холбогдсон segmented удирдлага */
 .m-filters {
   display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
+  width: max-content;
+  max-width: 100%;
+  padding: 3px;
+  border: 1px solid #ced7c4;
+  border-radius: var(--m-r-sm);
+  background: rgba(248, 250, 239, .6);
 }
 .m-filter {
-  min-height: 42.4px;
+  position: relative;
+  min-height: 36.4px;
   padding: 0 13px;
-  border: 1px solid #ced7c4;
-  border-radius: 4px;
+  border: 0;
+  border-radius: 6px;
   background: transparent;
-  color: #506848;
+  color: var(--m-text);
   font: 400 14px/22.4px var(--manrope);
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  transition: background-color .2s ease, color .2s ease;
 }
-.m-filter:hover { border-color: #94a389; color: var(--m-ink); }
+/* Хэсэг хоорондын нимгэн тусгаарлагч (сонгосон хэсгийн хажууд нуугдана) */
+.m-filter + .m-filter::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  bottom: 9px;
+  width: 1px;
+  background: #d6decd;
+}
+.m-filter[aria-pressed="true"]::before,
+.m-filter[aria-pressed="true"] + .m-filter::before { display: none; }
+.m-filter:hover { background: #fff; color: var(--m-ink); }
 .m-filter[aria-pressed="true"] {
-  border-color: #294d3a;
-  background: #294d3a;
+  background: var(--m-ink);
   color: #fff;
 }
 .m-filter-count { margin-left: 6px; }
@@ -374,13 +426,14 @@
   position: relative;
   flex: 0 0 240px;
 }
+/* Prägnanz: фонтоос хамаарахгүй цэвэр SVG шил */
 .m-search-icon {
   position: absolute;
-  top: 9px;
+  top: 50%;
   left: 13px;
-  color: var(--m-ink);
-  font-size: 24px;
-  line-height: 24px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
   pointer-events: none;
 }
 .m-search input {
@@ -388,7 +441,7 @@
   height: 43.2px;
   padding: 0 12px 0 35.5px;
   border: 1px solid #cad3c0;
-  border-radius: 4px;
+  border-radius: var(--m-r-sm);
   background: #f8faf3;
   color: var(--m-ink);
   font: 400 14px/19.6px var(--manrope);
@@ -405,36 +458,73 @@
 }
 .m-result {
   margin: 0;
-  color: #748168;
+  color: var(--m-muted);
   font-size: 14px;
   line-height: 24.5px;
 }
-.m-shelf-controls { display: flex; gap: 8px; }
+/* Common Region: зогсоох, өмнөх, дараах — нэг удирдлагын хүрээнд */
+.m-shelf-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 42px;
+  padding: 3px;
+  border: 1px solid #bbc9ad;
+  border-radius: var(--m-r-pill);
+  background: rgba(248, 250, 239, .7);
+}
 .m-pill,
 .m-round {
-  height: 42px;
-  border: 1px solid #bbc9ad;
-  background: rgba(248, 250, 239, .7);
-  color: #2f513b;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--m-ink);
   cursor: pointer;
-  transition: background-color .2s ease, border-color .2s ease;
+  transition: background-color .2s ease;
 }
 .m-pill {
-  min-width: 135px;
-  padding: 0 20px;
-  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 124px;
+  margin-right: 4px;
+  padding: 0 16px;
+  border-radius: var(--m-r-pill);
   font: 400 14px/24.5px var(--manrope);
+}
+/* Prägnanz: ⏸ / ▶ — товчны төлөв нэг харцаар */
+.m-motion-icon {
+  flex: none;
+  width: 9px;
+  height: 10px;
+  background: linear-gradient(90deg, currentColor 0 3px, transparent 3px 6px, currentColor 6px);
+}
+.m-pill[data-playing="false"] .m-motion-icon {
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+/* Зогсоох ба сумны хооронд нимгэн тусгаарлагч */
+.m-pill + .m-round { position: relative; }
+.m-pill + .m-round::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 7px;
+  bottom: 7px;
+  width: 1px;
+  background: #cfd8c5;
 }
 .m-round {
   display: grid;
   place-items: center;
-  width: 42px;
+  width: 34px;
   padding: 0;
   border-radius: 50%;
 }
 .m-round img { display: block; width: 5.1px; height: 10.2px; }
 .m-pill:hover,
-.m-round:hover { border-color: #8fa184; background: #fff; }
+.m-round:hover { background: #fff; }
 .m-shelf-controls[hidden] { display: none; }
 
 .m-shelf {
@@ -448,15 +538,23 @@
 
 .m-books {
   display: flex;
-  gap: 28px;
+  gap: 16px;
   margin: 0;
   padding: 0 0 4px;
   list-style: none;
 }
+/* Common Region: хавтас болон мэдээлэл нэг картад */
 .m-book {
-  flex: 0 0 204px;
+  flex: 0 0 220px;
+  padding: 11px 11px 16px;
+  border: 1px solid rgba(203, 212, 194, .75);
+  border-radius: var(--m-r-md);
+  background: rgba(255, 255, 255, .55);
   scroll-snap-align: start;
 }
+.m-book .m-book-cat,
+.m-book .m-book-title,
+.m-book .m-book-author { padding-inline: 5px; }
 .m-book[hidden] { display: none; }
 
 .m-book-cover {
@@ -478,8 +576,8 @@
 }
 
 .m-book-cat {
-  margin: 29px 0 0;
-  color: #687e58;
+  margin: 18px 0 0;
+  color: var(--m-eyebrow);
   font-size: 12px;
   line-height: 19.2px;
   letter-spacing: .03em;
@@ -494,7 +592,7 @@
 }
 .m-book-author {
   margin: 7.8px 0 0;
-  color: #6e7d62;
+  color: var(--m-muted);
   font-size: 13px;
   line-height: 22.1px;
 }
@@ -502,13 +600,13 @@
 .m-empty {
   margin: 0;
   padding: 48px 0;
-  color: #6e7b65;
+  color: var(--m-text);
   font-size: 15px;
 }
 
 .m-library-hint {
-  margin: 55px 0 0;
-  color: #6a7b60;
+  margin: 18px 0 0; /* Proximity: тавиурынхаа шууд доор */
+  color: var(--m-muted);
   font-size: 13px;
   line-height: 23.4px;
 }
@@ -518,7 +616,7 @@
   width: min(640px, 100% - 32px);
   padding: 36px;
   border: 1px solid #e2e4d8;
-  border-radius: 14px;
+  border-radius: var(--m-r-md);
   background: #fffefa;
   color: var(--m-text);
   font-family: var(--manrope);
@@ -578,20 +676,23 @@
 }
 .m-join-text {
   margin: 22.7px 0 0;
-  color: #6e7966;
+  color: var(--m-text);
   font-size: 15px;
   line-height: 28.5px;
 }
 
+/* Common Region: үнэ болон тайлбар нэг хайрцагт */
 .m-price {
   margin-top: 28.75px;
-  padding: 21px 0;
-  border-block: 1px solid #d5ddc9;
+  padding: 20px 22px;
+  border: 1px solid #dfe6d6;
+  border-radius: var(--m-r-md);
+  background: #f0f3e9;
 }
 .m-price + .m-join-text { margin-top: 23px; }
 .m-price-value {
   margin: 0;
-  color: #325540;
+  color: var(--m-ink);
   font-size: 35px;
   font-weight: 700;
   line-height: 45.5px;
@@ -599,7 +700,7 @@
 }
 .m-price-note {
   margin: 10.6px 0 0;
-  color: #65755c;
+  color: var(--m-text);
   font-size: 14px;
   line-height: 25.2px;
 }
@@ -607,16 +708,16 @@
 .m-join-contact {
   display: grid;
   justify-items: start;
-  gap: 6px;
+  gap: 2px;
   max-width: 390px;
-  margin-top: 36px;
-  padding-top: 25px;
+  margin-top: 48px; /* Proximity: холбоо барих — тусдаа бүлэг */
+  padding-top: 22px;
   border-top: 1px solid #d8ddce;
 }
 .m-join-contact-label {
   margin: 0 0 3px;
-  color: #8a947d;
-  font-size: 11px;
+  color: var(--m-muted);
+  font-size: 12px;
   line-height: 19.25px;
 }
 .m-join-contact a {
@@ -630,23 +731,59 @@
   align-self: start;
   padding: 34px 35px 35px;
   border: 1px solid #e2e4d8;
-  border-radius: 7px;
+  border-radius: var(--m-r-md);
   background: #fffefa;
 }
+/* Similarity: бусад жижиг гарчигтай ижил .m-eyebrow загвар */
 .m-form-eyebrow {
   margin: 0;
-  color: #849174;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 17.5px;
-  letter-spacing: .1em;
 }
 
-.m-field { margin-top: 15.5px; }
+.m-field { margin-top: 24px; } /* Proximity: талбар хооронд илүү зай, дотор нь бага */
+
+/* Uniform Connectedness: 1–4 алхам дугаартай цэг, босоо шугамаар холбогдоно */
+.m-form { counter-reset: step; }
+.m-field {
+  position: relative;
+  padding-left: 34px;
+  counter-increment: step;
+}
+.m-field::before {
+  content: counter(step);
+  position: absolute;
+  top: 1.25px;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--m-accent);
+  border-radius: 50%;
+  background: #fffefa;
+  color: var(--m-ink);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color .2s ease, color .2s ease;
+}
+.m-field.is-done::before {
+  border-color: var(--m-ink);
+  background: var(--m-ink);
+  color: #fff;
+}
+.m-field:has(+ .m-field)::after {
+  content: "";
+  position: absolute;
+  top: 27px;
+  bottom: -20px;
+  left: 10.5px;
+  width: 1px;
+  background: #cfd8c5;
+}
 .m-form-eyebrow + .m-field { margin-top: 20px; }
 .m-field label {
   display: block;
-  color: #395039;
+  color: var(--m-ink);
   font-size: 14px;
   line-height: 24.5px;
 }
@@ -656,12 +793,12 @@
 .m-field select {
   width: 100%;
   height: 50.4px;
-  margin-top: 7.75px;
+  margin-top: 6px;
   padding: 0 12px;
   border: 1px solid #dce1d2;
-  border-radius: 4px;
+  border-radius: var(--m-r-sm);
   background-color: #fbfcf7;
-  color: #3f573b;
+  color: var(--m-ink);
   font: 400 14px/19.6px var(--manrope);
 }
 .m-field select {
@@ -683,8 +820,8 @@
 .m-field input[aria-invalid="true"] { border-color: #b0684f; }
 
 .m-hint {
-  margin: 9.6px 0 0;
-  color: #617254;
+  margin: 6px 0 0;
+  color: var(--m-text);
   font-size: 14px;
   line-height: 23.8px;
 }
@@ -699,7 +836,7 @@
   display: grid;
   grid-template-columns: 13px 1fr;
   gap: 16px;
-  margin-top: 23.3px;
+  margin-top: 28px;
   padding-left: 4px;
 }
 /* Figma-д зөвшөөрлийн мөрүүд картын дотор зайд бага зэрэг орсон */
@@ -714,7 +851,7 @@
   cursor: pointer;
 }
 .m-consent label {
-  color: #78826b;
+  color: var(--m-muted);
   font-size: 13px;
   line-height: 23.4px;
   cursor: pointer;
@@ -735,7 +872,7 @@
 
 .m-form-note {
   margin: 12.7px 0 0;
-  color: #96a08b;
+  color: var(--m-muted);
   font-size: 12px;
   line-height: 21.6px;
 }
@@ -803,8 +940,21 @@
   .m-program-head .m-eyebrow { margin-bottom: 12px; }
   .m-program-title { font-size: 32px; line-height: 38px; }
   .m-program-grid { grid-template-columns: 1fr; }
-  .m-program-grid li { padding: 26px 0; }
-  .m-program-grid li + li { padding-left: 0; border-left: 0; border-top: 1px solid #d9dece; }
+  .m-program-grid li { padding: 26px 0 26px 28px; }
+  .m-program-grid::before { display: none; }
+  .m-program-grid li::before,
+  .m-program-grid li + li::before { top: 32px; left: 0; }
+  /* Дараалал босоо шугамаар */
+  .m-program-grid li:first-child::after {
+    content: "";
+    position: absolute;
+    left: 4.5px;
+    top: 43px;
+    bottom: -32px;
+    width: 2px;
+    background: var(--m-accent);
+  }
+  .m-program-grid li + li { padding-left: 28px; border-left: 0; }
 
   .m-library { padding: 56px 0; }
   .m-library-head { grid-template-columns: 1fr; }
@@ -813,7 +963,7 @@
   .m-filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .m-filters::-webkit-scrollbar { display: none; }
   .m-search { flex-basis: auto; }
-  .m-library-hint { margin-top: 36px; }
+  .m-library-hint { margin-top: 16px; }
 
   .m-join { grid-template-columns: 1fr; gap: 40px; padding: 72px 0; }
   .m-join-title { font-size: 36px; line-height: 42px; }
@@ -832,7 +982,7 @@
 
   .m-library-title { font-size: 36px; line-height: 42px; }
   .m-shelf-bar { flex-wrap: wrap; }
-  .m-book { flex-basis: 168px; }
+  .m-book { flex-basis: 184px; }
   .m-book-cover,
   .m-book-cover img { height: 229px; }
 

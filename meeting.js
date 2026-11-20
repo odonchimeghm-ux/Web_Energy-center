@@ -112,9 +112,9 @@
 
   function setPlaying(value) {
     playing = value;
-    motionBtn.textContent = playing ? 'Түр зогсоох' : 'Үргэлжлүүлэх';
+    motionBtn.dataset.playing = String(playing);
+    motionBtn.querySelector('.m-motion-text').textContent = playing ? 'Түр зогсоох' : 'Үргэлжлүүлэх';
   }
-  motionBtn.removeAttribute('aria-pressed');
   setPlaying(playing);
   motionBtn.addEventListener('click', function () { setPlaying(!playing); });
 
@@ -202,10 +202,30 @@
     ];
   }
 
+  var topicSelect = document.getElementById('m-topic');
+
   function refresh() {
     var incomplete = !nameInput.value.trim() || !contactInput.value.trim() || !consent.checked;
     form.classList.toggle('is-incomplete', incomplete);
+
+    // Uniform Connectedness: бөглөгдсөн алхмын дугаар тодорно
+    var contact = contactInput.value.trim();
+    [
+      [dateSelect, !!dateSelect.value],
+      [nameInput, nameInput.value.trim().length > 0],
+      [contactInput, phoneRe.test(contact) || emailRe.test(contact)],
+      [topicSelect, !!topicSelect.value]
+    ].forEach(function (pair) {
+      pair[0].closest('.m-field').classList.toggle('is-done', pair[1]);
+    });
   }
+
+  // «Энэ өдөр бүртгүүлэх» — маягт дээр тэр огноог сонгоно
+  document.getElementById('m-next-link').addEventListener('click', function () {
+    dateSelect.selectedIndex = 0;
+    refresh();
+  });
+  [dateSelect, topicSelect].forEach(function (el) { el.addEventListener('change', refresh); });
 
   function showError(item, show) {
     var msg = document.getElementById(item.error);

@@ -67,6 +67,7 @@
           <p class="m-next-label">Дараагийн уулзалт</p>
           <p class="m-next-date"><time datetime="2026-11-28T07:00+08:00">2026.11.28 · Бямба · 07:00–08:30</time></p>
           <p class="m-next-note">Өглөө 07:00–08:30 · Улаанбаатарын цаг</p>
+          <a class="m-next-link" href="#register" id="m-next-link">Энэ өдөр бүртгүүлэх <span aria-hidden="true">→</span></a>
         </div>
       </div>
 
@@ -102,7 +103,7 @@
       <div class="m-wrap">
         <div class="m-about m-reveal">
           <div class="m-about-head">
-            <p class="m-eyebrow m-eyebrow-sm">ХАМТДАА ОЙЛГОХ ОРОН ЗАЙ</p>
+            <p class="m-eyebrow">ХАМТДАА ОЙЛГОХ ОРОН ЗАЙ</p>
             <h2 class="m-about-title" id="m-about-title">Номтой терапи<br><span>сэтгэлээ хайрлая</span></h2>
           </div>
 
@@ -128,7 +129,7 @@
 
         <div class="m-program m-reveal" aria-labelledby="m-program-title">
           <div class="m-program-head">
-            <p class="m-eyebrow m-eyebrow-sm">УУЛЗАЛТЫН ХӨТӨЛБӨР</p>
+            <p class="m-eyebrow">УУЛЗАЛТЫН ХӨТӨЛБӨР</p>
             <h2 class="m-program-title" id="m-program-title">Нэг уулзалт. <span>90 минут.</span></h2>
           </div>
 
@@ -163,7 +164,7 @@
       <div class="m-wrap">
         <div class="m-library-head">
           <div>
-            <p class="m-eyebrow m-eyebrow-sm">УУЛЗАЛТЫН СЭДЭВ БОЛГОХ НОМУУД</p>
+            <p class="m-eyebrow">УУЛЗАЛТЫН СЭДЭВ БОЛГОХ НОМУУД</p>
             <h2 class="m-library-title" id="m-library-title">20 ном.<br><span>Олон шинэ асуулт.</span></h2>
           </div>
           <p class="m-library-text">
@@ -184,7 +185,7 @@
 
           <label class="m-search">
             <span class="sr-only">Ном, зохиолчоор хайх</span>
-            <span class="m-search-icon" aria-hidden="true">⌕</span>
+            <img class="m-search-icon" src="assets/meeting/icon-search.svg" alt="" width="16" height="16">
             <input type="search" id="m-book-search" placeholder="Ном, зохиолчоор хайх…" autocomplete="off">
           </label>
         </div>
@@ -192,7 +193,7 @@
         <div class="m-shelf-bar">
           <p class="m-result" id="m-result" aria-live="polite">5 ном</p>
           <div class="m-shelf-controls">
-            <button class="m-pill" type="button" id="m-motion" aria-pressed="false">Түр зогсоох</button>
+            <button class="m-pill" type="button" id="m-motion" data-playing="true"><span class="m-motion-icon" aria-hidden="true"></span><span class="m-motion-text">Түр зогсоох</span></button>
             <button class="m-round" type="button" id="m-prev" aria-label="Өмнөх ном">
               <img src="assets/meeting/chevron-left.svg" alt="" width="5.1" height="10.2">
             </button>
@@ -209,7 +210,7 @@
                 <img src="assets/meeting/book-1.png" alt="" width="199" height="278" loading="lazy">
               </button>
               <p class="m-book-cat">Өөрийгөө ойлгох</p>
-              <h3 class="m-book-title">Хүмүүний утга учрын<br>эрэлд</h3>
+              <h3 class="m-book-title">Хүмүүний утга учрын эрэлд</h3>
               <p class="m-book-author">Виктор Франкл</p>
             </li>
             <li class="m-book" data-category="Өөрийгөө ойлгох">
@@ -255,7 +256,7 @@
     <!-- 06 · Уулзалтын бүртгэл -->
     <section class="m-wrap m-join" id="register" aria-labelledby="m-join-title">
       <div class="m-join-info">
-        <p class="m-eyebrow m-eyebrow-sm">ӨӨРТӨӨ ЗОРИУЛАХ ӨГЛӨӨНИЙ ЦАГ</p>
+        <p class="m-eyebrow">ӨӨРТӨӨ ЗОРИУЛАХ ӨГЛӨӨНИЙ ЦАГ</p>
         <h2 class="m-join-title" id="m-join-title">Бүлгийн уулзалтад<br><span>таныг урьж байна.</span></h2>
         <p class="m-join-text">
           Сар бүрийн сүүлийн бямба гарагийн өглөө 07:00–08:30<br class="m-br">
@@ -285,7 +286,7 @@
       </div>
 
       <form class="m-form" id="m-form" novalidate>
-        <p class="m-form-eyebrow">БҮЛГИЙН УУЛЗАЛТЫН БҮРТГЭЛ</p>
+        <p class="m-eyebrow m-form-eyebrow">БҮЛГИЙН УУЛЗАЛТЫН БҮРТГЭЛ</p>
 
         <div class="m-field">
           <label for="m-date">Оролцох уулзалт <span class="m-req" aria-hidden="true">*</span></label>
