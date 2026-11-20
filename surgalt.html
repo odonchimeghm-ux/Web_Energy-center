@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Амьсгалын хүч · Сургалт · Энержи сэтгэл зүйн төв</title>
+  <meta name="description" content="Амьсгалын хүч — тайвшруулах амьсгалын 8 арга. 7 хоногийн анхан шатны онлайн сургалт. Энержи сэтгэл зүйн төв.">
+  <link rel="icon" type="image/png" href="assets/images/logo-mark.png">
+  <link rel="apple-touch-icon" href="assets/images/logo-mark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Manrope:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="training.css">
+  <script>
+    if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      document.documentElement.classList.add('reveal-on');
+    }
+  </script>
+  <script src="training.js" defer></script>
+</head>
+<body id="top" class="page-training">
+  <a class="skip-link" href="#main">Агуулга руу очих</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Энержи сэтгэл зүйн төвийн нүүр">
+        <img class="brand-logo" src="assets/images/logo-mark.png" alt="" width="42" height="42">
+        <span class="brand-name">Энержи<br>сэтгэл зүйн төв</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Үндсэн цэс">
+        <a href="index.html">Сэтгэл зүйн зөвлөгөө</a>
+        <a href="surgalt.html" aria-current="page">Сургалт</a>
+        <a href="#">Дэлгүүр</a>
+        <a href="#">Мэдлэг</a>
+      </nav>
+
+      <a class="btn btn-primary btn-header" href="tel:88116562">
+        Зөвлөгөөний цаг захиалах
+        <img src="assets/icons/arrow-light.svg" alt="" width="14" height="14">
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="t-hero" aria-labelledby="t-hero-title">
+      <img class="t-hero-bg" src="assets/training/hero-lake.jpg" alt="" width="1672" height="941" fetchpriority="high">
+      <div class="t-hero-shade" aria-hidden="true"></div>
+
+      <div class="t-container t-hero-inner">
+        <div class="t-hero-content">
+          <p class="t-hero-eyebrow">
+            <img src="assets/training/icon-breath.svg" alt="" width="25" height="28">
+            АНХАН ШАТНЫ ОНЛАЙН СУРГАЛТ
+          </p>
+          <h1 id="t-hero-title" class="t-hero-title">Амьсгалын <span>хүч.</span></h1>
+          <p class="t-hero-sub">Тайвшруулах амьсгалын 8 арга</p>
+          <p class="t-hero-lead">Өдрийн ачааллаас түр завсарлаж,<br>өөрийнхөө хэмнэлд эргэн ирээрэй.</p>
+
+          <div class="t-hero-actions">
+            <a class="t-btn t-btn-lime t-btn-price" href="#enroll">
+              Өөртөө цаг гаргая
+              <span class="t-btn-price-tag">49,000₮</span>
+            </a>
+            <a class="t-btn t-btn-glass" href="#breath">
+              <span class="t-play" aria-hidden="true"></span>
+              Хэмнэл турших
+            </a>
+          </div>
+          <p class="t-hero-note">Ажил, гэр, өдөр тутмын амьдралдаа ашиглах энгийн дадлууд.</p>
+        </div>
+
+        <div class="t-hero-foot">
+          <p class="t-hero-motto">АМЬСГАЛАА АНЗААР.<br>БИЕЭ МЭДЭР. ТҮР АЗНА.</p>
+          <a class="t-hero-more" href="#intro">Дэлгэрүүлж үзэх</a>
+        </div>
+
+        <ul class="t-facts" aria-label="Сургалтын товч мэдээлэл">
+          <li class="t-fact">
+            <strong><span class="t-fact-num">7</span> хоног</strong>
+            <span class="t-fact-label">Өөрийн хэмнэлээр суралцах</span>
+          </li>
+          <li class="t-fact">
+            <strong><span class="t-fact-num">10</span> хичээл</strong>
+            <span class="t-fact-label">Лекц, дадлага</span>
+          </li>
+          <li class="t-fact">
+            <strong><span class="t-fact-num">2.5</span> цаг</strong>
+            <span class="t-fact-label">Видео хичээл</span>
+          </li>
+          <li class="t-fact">
+            <strong><span class="t-fact-num">10–20</span> минут</strong>
+            <span class="t-fact-label">Өдөр бүрийн дадлага</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section id="intro" class="t-container t-intro t-reveal" aria-labelledby="t-intro-title">
+      <p class="t-eyebrow">АМЬСГАЛААСАА ЭХЭЛЬЕ</p>
+      <h2 id="t-intro-title" class="t-h2">Гадаад ертөнцийн хэмнэлээс<br><span>өөрийнхөө хэмнэл рүү.</span></h2>
+      <p class="t-intro-lead">Өдөр тутмын ачааллын дунд түр завсарлаж, биеэ анзаарч, сэтгэлээ тайвшруулахад амьсгалаа хэрхэн ашиглахыг сураарай. Багшийн удирдсан дадлагаар 8 төрлийн аргатай танилцаж, өөрт тохирох аргаа өдөр тутмын амьдралдаа хэрэгжүүлнэ.</p>
+      <ul class="t-checks">
+        <li>Анхан шатнаас эхэлнэ</li>
+        <li>100% онлайн</li>
+        <li>Хүссэн цагтаа үзнэ</li>
+      </ul>
+    </section>
+
+    <!-- One-minute breathing -->
+    <section id="breath" class="t-container t-breath t-reveal" aria-labelledby="t-breath-title">
+      <img class="t-breath-bg" src="assets/training/breath-stream.jpg" alt="" width="1672" height="941" loading="lazy">
+      <div class="t-breath-shade" aria-hidden="true"></div>
+
+      <div class="t-breath-top">
+        <p class="t-breath-kicker">БАЙГАЛИЙН ХЭМНЭЛД · ӨӨРТӨӨ ЗОРИУЛАХ 60 СЕКУНД</p>
+        <p class="t-breath-space"><span aria-hidden="true">✳</span> Түр азнах орон зай</p>
+      </div>
+
+      <div class="t-breath-body">
+        <div class="t-breath-copy">
+          <h2 id="t-breath-title" class="t-breath-title">Яг одоо.<br>Нэг тайван<br><span>амьсгал.</span></h2>
+          <p class="t-breath-lead">Усны урсгалыг ажиглаад, гэрэлт цэгийг даган амьсгалаа зөөлөн аваад гаргаарай.</p>
+          <p class="t-breath-hint">Дээшлэхэд — амьсгалаа авна.<br>Доошлоход — амьсгалаа гаргана.</p>
+        </div>
+
+        <div class="t-breath-stage" data-breath>
+          <div class="t-breath-status">
+            <p class="t-breath-small">ӨӨРИЙН ХЭМНЭЛД ЭРГЭН ИР</p>
+            <p class="t-breath-phase" data-breath-phase aria-live="polite">Түр азна.</p>
+            <p class="t-breath-sub" data-breath-sub>Бэлэн болохоороо эхлээрэй.</p>
+          </div>
+
+          <div class="t-breath-count" data-breath-count aria-hidden="true">
+            <span class="t-breath-count-num" data-breath-sec>4</span>
+            <span class="t-breath-count-unit">секунд</span>
+          </div>
+
+          <div class="t-wave" aria-hidden="true">
+            <img class="t-wave-line" src="assets/training/wave-line.svg" alt="" width="657.051" height="124.254">
+            <div class="t-wave-trail" data-breath-trail>
+              <img src="assets/training/wave-trail.svg" alt="" width="658.214" height="125.417">
+            </div>
+            <div class="t-wave-dot" data-breath-dot>
+              <img class="t-wave-dot-glow" src="assets/training/wave-dot-1.svg" alt="" width="84.5626" height="84.5626">
+              <img class="t-wave-dot-halo" src="assets/training/wave-dot-2.svg" alt="" width="40.1672" height="40.1672">
+              <img class="t-wave-dot-ring" src="assets/training/wave-dot-3.svg" alt="" width="26.1087" height="26.1087">
+              <img class="t-wave-dot-core" src="assets/training/wave-dot-4.svg" alt="" width="34.8821" height="34.8821">
+            </div>
+          </div>
+
+          <ul class="t-breath-legend">
+            <li data-breath-legend="in">Амьсгаа авах <small>4 сек</small></li>
+            <li data-breath-legend="out">Амьсгалаа гаргах <small>6 сек</small></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-breath-bar">
+        <button class="t-btn t-btn-lime t-breath-btn" type="button" data-breath-toggle>1 минут турших</button>
+        <div class="t-breath-meters">
+          <p class="t-meter t-meter-cycles"><span data-breath-cycles>0 / 6</span><small>хэмнэл</small></p>
+          <p class="t-meter"><span data-breath-time>01:00</span><small>үлдсэн хугацаа</small></p>
+        </div>
+      </div>
+
+      <div class="t-breath-progress" role="progressbar" aria-label="Нэг минутын явц" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0" data-breath-progress>
+        <span data-breath-fill></span>
+      </div>
+      <p class="t-breath-note">Амьсгалаа хүчлэхгүй, өөрт тухтай хэмжээнд хийгээрэй. Хүссэн үедээ зогсоож болно.</p>
+    </section>
+
+    <!-- Everyday use -->
+    <section id="daily" class="t-container t-daily t-reveal" aria-labelledby="t-daily-title">
+      <p class="t-eyebrow">ӨДӨР ТУТМЫН АМЬДРАЛД</p>
+      <h2 id="t-daily-title" class="t-h2">Сурсан зүйлээ<br><span>амьдралдаа шингээ.</span></h2>
+      <p class="t-daily-lead">Өөрийгөө анзаарч, түр азнах боломжийг өдөр тутамдаа бий болгоно.</p>
+
+      <div class="t-uses">
+        <article class="t-use t-use-work">
+          <img src="assets/training/icon-work.svg" alt="" width="72" height="72">
+          <h3>Ажил дээрээ</h3>
+          <p>Ажлын завсарлагаар, чухал уулзалтын өмнө амьсгалдаа анхаарч, түр азнах дадалтай болно.</p>
+          <p class="t-use-tag">ТӨВЛӨРӨХ ЗАВСАРЛАГА</p>
+        </article>
+        <article class="t-use t-use-family">
+          <img src="assets/training/icon-family.svg" alt="" width="72" height="72">
+          <h3>Гэр бүлдээ</h3>
+          <p>Үр хүүхэд, гэр бүлийнхэнтэйгээ харилцахдаа өөрийн мэдрэмж, хариу үйлдлийг анзаарч сурна.</p>
+          <p class="t-use-tag">ХАРИЛЦААНДАА ТҮР АЗНАХ</p>
+        </article>
+        <article class="t-use t-use-self">
+          <img src="assets/training/icon-self.svg" alt="" width="72" height="72">
+          <h3>Өөртөө зориулж</h3>
+          <p>Амьсгал, биеийн мэдрэмж, сэтгэл санааныхаа холбоог ажиглаж, өөрт тухтай хэмнэлээ олно.</p>
+          <p class="t-use-tag">БИЕ, СЭТГЭЛЭЭ АНЗААРАХ</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7-day program -->
+    <section id="program" class="t-program" aria-labelledby="t-program-title">
+      <div class="t-container t-reveal">
+        <p class="t-eyebrow">7 ХОНОГИЙН ХӨТӨЛБӨР</p>
+        <h2 id="t-program-title" class="t-h2">Нэг өдөр.<br><span>Нэг жижиг алхам.</span></h2>
+        <p class="t-program-lead">Суурь ойлголтоос эхэлж, арга бүрийг дадлагаар суралцана.</p>
+
+        <div class="t-days" role="tablist" aria-label="Сургалтын өдрүүд" data-days>
+          <button class="t-day" type="button" role="tab" id="day-tab-1" aria-controls="day-panel" aria-selected="true" style="--col:0;--row:0">
+            <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
+            <span class="t-day-label"><span class="t-day-num">01</span> Эхлэл</span>
+          </button>
+          <button class="t-day" type="button" role="tab" id="day-tab-2" aria-controls="day-panel" aria-selected="false" tabindex="-1" style="--col:1;--row:0">
+            <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
+            <span class="t-day-label"><span class="t-day-num">02</span> Анхны дадлага</span>
+          </button>
+          <button class="t-day" type="button" role="tab" id="day-tab-3" aria-controls="day-panel" aria-selected="false" tabindex="-1" style="--col:2;--row:0">
+            <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
+            <span class="t-day-label"><span class="t-day-num">03</span> Хэмнэл</span>
+          </button>
+          <button class="t-day" type="button" role="tab" id="day-tab-4" aria-controls="day-panel" aria-selected="false" tabindex="-1" style="--col:3;--row:0">
+            <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
+            <span class="t-day-label"><span class="t-day-num">04</span> Мэдрэмж</span>
+          </button>
+          <button class="t-day" type="button" role="tab" id="day-tab-5" aria-controls="day-panel" aria-selected="false" tabindex="-1" style="--col:0;--row:1">
+            <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
+            <span class="t-day-label"><span class="t-day-num">05</span> Сонголт</span>
+          </button>
+          <button class="t-day" type="button" role="tab" id="day-tab-6" aria-controls="day-panel" aria-selected="false" tabindex="-1" style="--col:1;--row:1">
+            <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
+            <span class="t-day-label"><span class="t-day-num">06</span> Давтлага</span>
+          </button>
+          <button class="t-day" type="button" role="tab" id="day-tab-7" aria-controls="day-panel" aria-selected="false" tabindex="-1" style="--col:2;--row:1">
+            <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
+            <span class="t-day-label"><span class="t-day-num">07</span> Өдөр тутамд</span>
+          </button>
+        </div>
+
+        <div class="t-panel" id="day-panel" role="tabpanel" aria-labelledby="day-tab-1" tabindex="0" style="--col:0;--row:0" data-day-panel>
+          <div class="t-panel-media">
+            <img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy">
+            <div class="t-panel-badge">
+              <span class="t-panel-badge-num" data-day-field="num">1</span>
+              <span class="t-panel-badge-unit">ДЭХ ӨДӨР</span>
+            </div>
+            <div class="t-panel-caption">
+              <p class="t-panel-scene" data-day-field="scene">Өглөөний тэнгэр</p>
+              <p class="t-panel-scene-sub">Өөрийн цаг. Өөрийн хэмнэл.</p>
+            </div>
+          </div>
+          <div class="t-panel-body">
+            <p class="t-panel-meta" data-day-field="meta">1–2-р хичээл · Суурь ойлголт</p>
+            <h3 class="t-panel-title" data-day-field="title">Амьсгалаа таних,<br>аюулгүй эхлэх</h3>
+            <p class="t-panel-text" data-day-field="text">Амьсгалын тухай суурь ойлголт, ач тус, дадлагын түүхтэй танилцана. Дасгал хийх орчин, тухтай байрлал, аюулгүй байдлын зарчмыг ойлгоно.</p>
+            <ul class="t-panel-list" data-day-field="list">
+              <li>Яагаад амьсгалдаа анхаарах хэрэгтэй вэ?</li>
+              <li>Өөрийн хэмнэлийг хүндэтгэх нь</li>
+            </ul>
+            <p class="t-panel-foot" data-day-field="foot">Видео тайлбар + Удирдуулсан дадлага</p>
+          </div>
+        </div>
+
+        <div class="t-program-note">
+          <p>Өдөрт <strong>10–20 минут</strong> дадлага хийнэ.</p>
+          <p>Хөтөлбөрөө өөрт тохирох хуваариар үзээрэй.</p>
+        </div>
+        <p class="t-program-foot">7 хоногийн санал болгох дараалал. Та өөрийн хэмнэлээр суралцаж болно.</p>
+      </div>
+    </section>
+
+    <!-- Teacher -->
+    <section id="teacher" class="t-container t-teacher t-reveal" aria-labelledby="t-teacher-title">
+      <div class="t-teacher-photo">
+        <img src="assets/training/teacher-portrait.jpg" alt="Б. Одончимэгийн хөрөг. Амьсгалын хүч. Өөрийн хэмнэлдээ эргэн ир." width="1122" height="1402" loading="lazy">
+      </div>
+
+      <div class="t-teacher-body">
+        <p class="t-eyebrow">ТАНЫ СУРГАЛТЫН БАГШ</p>
+        <h2 id="t-teacher-title" class="t-teacher-name">Б. Одончимэг</h2>
+        <p class="t-teacher-role">Сэтгэл зүйч,<br>эерэг сэтгэл заслын зөвлөх</p>
+        <p class="t-teacher-text">Энэ сургалтаар би амьсгалын арга бүрийг ойлгомжтой тайлбарлаж, дасгалыг хамтдаа хийнэ. Та биеийнхээ мэдрэмжийг анзаарч, өөрт тухтай хэмнэлээр суралцаарай.</p>
+        <blockquote class="t-teacher-quote">
+          <p>Өдөр тутмын ачааллын дунд өөртөө түр азнах цаг гаргахаас эхэлье.</p>
+        </blockquote>
+        <a class="t-teacher-link" href="index.html#about-title">Энержи сэтгэл зүйн төвийн тухай</a>
+      </div>
+    </section>
+
+    <!-- Enroll CTA -->
+    <section id="enroll" class="t-container t-enroll t-reveal" aria-labelledby="t-enroll-title">
+      <img class="t-enroll-bg" src="assets/training/hero-lake.jpg" alt="" width="1672" height="941" loading="lazy">
+      <div class="t-enroll-shade" aria-hidden="true"></div>
+
+      <div class="t-enroll-inner">
+        <p class="t-enroll-eyebrow">АМЬСГАЛЫН ХҮЧ · АНХАН ШАТ</p>
+        <h2 id="t-enroll-title" class="t-enroll-title">Өөртөө зориулсан<br>шинэ эхлэл.</h2>
+        <p class="t-enroll-lead">Тайвшруулах амьсгалын 8 арга.<br>7 хоногийн онлайн хөтөлбөр.</p>
+        <p class="t-enroll-price">49,000₮</p>
+        <p class="t-enroll-price-label">Сургалтын нийт төлбөр</p>
+        <a class="t-btn t-btn-lime t-enroll-btn" href="tel:88116562">Сургалтад бүртгүүлэх</a>
+        <p class="t-enroll-note">Өөрийн цаг, өөрийн хэмнэлээр.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="t-footer-wrap">
+    <footer class="container site-footer">
+      <div class="footer-main">
+        <a class="brand brand-footer" href="#top">
+          <img class="brand-logo" src="assets/images/logo-mark.png" alt="" width="36" height="36">
+          <span class="brand-name">Энержи<br>сэтгэл зүйн төв</span>
+        </a>
+
+        <address class="footer-contact">
+          <p class="footer-heading">Холбоо барих</p>
+          <p class="contact-line">
+            <span class="t-contact-icon" aria-hidden="true">
+              <img class="t-icon-phone" src="assets/training/icon-phone.svg" alt="" width="12.4" height="12.4">
+            </span>
+            <span class="sr-only">Утас:</span>
+            <a href="tel:+97688116562">+976 8811 6562</a>
+          </p>
+          <p class="contact-line">
+            <span class="t-contact-icon" aria-hidden="true">
+              <img class="t-icon-mail-box" src="assets/training/icon-mail-1.svg" alt="" width="13.0667" height="10.4">
+              <img class="t-icon-mail-flap" src="assets/training/icon-mail-2.svg" alt="" width="13.0668" height="5.06672">
+            </span>
+            <span class="sr-only">Имэйл:</span>
+            <a href="mailto:Motakenergy@gmail.com">Motakenergy@gmail.com</a>
+          </p>
+        </address>
+
+        <a class="back-top" href="#top">Дээш буцах</a>
+      </div>
+
+      <p class="footer-copy">© 2026 Энержи сэтгэл зүйн төв</p>
+    </footer>
+  </div>
+</body>
+</html>
