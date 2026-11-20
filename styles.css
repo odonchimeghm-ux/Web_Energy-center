@@ -530,9 +530,12 @@ strong { font-weight: 700; }
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding-top: 30px;
+  counter-reset: card;
 }
 
 .card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: 28px;
@@ -540,14 +543,35 @@ strong { font-weight: 700; }
   border-radius: 12px;
   background: var(--surface-card);
   filter: drop-shadow(0 3px 0 #dce3d5);
+  counter-increment: card;
 }
 
+/* Хээ: баруун дээд буланд том, бүдэг серифтэй дугаар */
+.card::after {
+  content: counter(card, decimal-leading-zero);
+  position: absolute;
+  top: -14px;
+  right: 12px;
+  color: var(--green);
+  font-family: var(--serif);
+  font-size: 104px;
+  line-height: 1;
+  letter-spacing: -.04em;
+  opacity: .045;
+  pointer-events: none;
+}
+
+/* Байрлал + Өнгө: дугаар — алхмын (flow) дугуйтай адил ногоон тэмдэг */
 .card-num {
-  padding-bottom: 18px;
-  color: var(--label);
+  align-self: flex-start;
+  margin-bottom: 18px;
+  padding: 1px 10px;
+  border-radius: 40px;
+  background: #dfe7d8;
+  color: var(--green);
   font-size: 11px;
-  font-weight: 650;
-  line-height: 18.15px;
+  font-weight: 700;
+  line-height: 20px;
   letter-spacing: 1.32px;
 }
 
@@ -562,13 +586,23 @@ strong { font-weight: 700; }
   letter-spacing: -1.19px;
 }
 
+/* Тодрол: урт тайлбарыг гарчгаас нэг шат зөөлөн болгож гарчгийг тодруулна */
 .card-text {
   padding-bottom: 16px;
+  color: var(--muted);
   font-size: 15px;
   line-height: 26.25px;
 }
 
 .card .accordion-sm { margin-bottom: 26px; }
+/* Налуу: нэмэлт мэдээллийн гарчиг Lora налуугаар */
+.card .accordion-sm summary {
+  font-family: var(--lora);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+}
+.card .accordion-sm .plus { font-family: var(--sans); font-style: normal; }
 
 /* Common Region: үнэ + товч нэг хүрээнд */
 .card-book {
@@ -926,12 +960,25 @@ strong { font-weight: 700; }
 @media (prefers-reduced-motion: no-preference) {
   /* Карт дээр хулгана очиход бага зэрэг өргөгдөнө */
   .card { transition: transform .25s ease, filter .25s ease; }
+  .card-num { transition: transform .3s ease; }
   @media (hover: hover) {
     .card:hover {
       transform: translateY(-3px);
       filter: drop-shadow(0 6px 0 #dce3d5);
     }
+    /* Өнцөг: зөвхөн hover үед дугаар бага зэрэг хазайна */
+    .card:hover .card-num { transform: rotate(-4deg); }
   }
+
+  /* Хөдөлгөөн: картууд ээлжлэн гарч ирнэ (0 / 120 / 240ms) */
+  .reveal-on .services .card {
+    opacity: 0;
+    translate: 0 16px;
+    transition: opacity .6s ease var(--d, 0s), translate .6s ease var(--d, 0s), transform .25s ease, filter .25s ease;
+  }
+  .reveal-on .services .card:nth-child(2) { --d: .12s; }
+  .reveal-on .services .card:nth-child(3) { --d: .24s; }
+  .reveal-on .services.is-visible .card { opacity: 1; translate: none; }
 
   /* Хэсгүүд аажмаар тодорно (script.js) */
   .reveal-on .about,

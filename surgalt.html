@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="assets/images/logo-mark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Manrope:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Manrope:wght@400..700&family=Lora:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="training.css">
   <script>
@@ -33,7 +33,7 @@
       <nav class="main-nav" aria-label="Үндсэн цэс">
         <a href="index.html">Сэтгэл зүйн зөвлөгөө</a>
         <a href="surgalt.html" aria-current="page">Сургалт</a>
-        <a href="#">Дэлгүүр</a>
+        <a href="delguur.html">Дэлгүүр</a>
         <a href="#">Мэдлэг</a>
       </nav>
 
@@ -180,23 +180,24 @@
       <p class="t-daily-lead">Өөрийгөө анзаарч, түр азнах боломжийг өдөр тутамдаа бий болгоно.</p>
 
       <div class="t-uses">
+        <!-- Hierarchy: икон (гол цэг) → гарчиг → гол үр дүн (pill) → тайлбар -->
         <article class="t-use t-use-work">
-          <img src="assets/training/icon-work.svg" alt="" width="72" height="72">
+          <span class="t-use-icon"><img src="assets/training/icon-work.svg" alt="" width="72" height="72"></span>
           <h3>Ажил дээрээ</h3>
-          <p>Ажлын завсарлагаар, чухал уулзалтын өмнө амьсгалдаа анхаарч, түр азнах дадалтай болно.</p>
-          <p class="t-use-tag">ТӨВЛӨРӨХ ЗАВСАРЛАГА</p>
+          <p class="t-use-tag">Төвлөрөх завсарлага</p>
+          <p>Ажлын завсарлагаар, чухал уулзалтын өмнө амьсгалдаа анхаарч, <em>түр азнах</em> дадалтай болно.</p>
         </article>
         <article class="t-use t-use-family">
-          <img src="assets/training/icon-family.svg" alt="" width="72" height="72">
+          <span class="t-use-icon"><img src="assets/training/icon-family.svg" alt="" width="72" height="72"></span>
           <h3>Гэр бүлдээ</h3>
-          <p>Үр хүүхэд, гэр бүлийнхэнтэйгээ харилцахдаа өөрийн мэдрэмж, хариу үйлдлийг анзаарч сурна.</p>
-          <p class="t-use-tag">ХАРИЛЦААНДАА ТҮР АЗНАХ</p>
+          <p class="t-use-tag">Харилцаандаа түр азнах</p>
+          <p>Үр хүүхэд, гэр бүлийнхэнтэйгээ харилцахдаа өөрийн мэдрэмж, хариу үйлдлийг <em>анзаарч</em> сурна.</p>
         </article>
         <article class="t-use t-use-self">
-          <img src="assets/training/icon-self.svg" alt="" width="72" height="72">
+          <span class="t-use-icon"><img src="assets/training/icon-self.svg" alt="" width="72" height="72"></span>
           <h3>Өөртөө зориулж</h3>
-          <p>Амьсгал, биеийн мэдрэмж, сэтгэл санааныхаа холбоог ажиглаж, өөрт тухтай хэмнэлээ олно.</p>
-          <p class="t-use-tag">БИЕ, СЭТГЭЛЭЭ АНЗААРАХ</p>
+          <p class="t-use-tag">Бие, сэтгэлээ анзаарах</p>
+          <p>Амьсгал, биеийн мэдрэмж, сэтгэл санааныхаа холбоог ажиглаж, өөрт <em>тухтай хэмнэлээ</em> олно.</p>
         </article>
       </div>
     </section>

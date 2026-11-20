@@ -597,52 +597,99 @@
   content: "";
   position: absolute;
   z-index: 1;
-  top: 68px;
-  left: 66px;
-  right: calc((100% - 40px) / 3 - 66px);
+  top: 76px;   /* иконы дугуйн төв */
+  left: 74px;
+  right: calc((100% - 40px) / 3 - 74px);
   border-top: 1.5px dashed #a9bda0;
   pointer-events: none;
 }
-.t-use img {
-  position: relative;
-  z-index: 2;
-  background: inherit;
-}
+
+/* Emphasis / Hierarchy ------------------------------------
+   1-р түвшин: икон (дугуй дэвсгэртэй гол цэг) + гарчиг 26px
+   2-р түвшин: гол үр дүн — өнгөт pill, гарчгийн шууд доор
+   3-р түвшин: тайлбар 15px, нэг түлхүүр үг Lora налуугаар
+   Карт бүр: --card (дэвсгэр), --card-deep (икон/pill), --card-accent (текст) */
 .t-use {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 375px;
-  padding: 32px 30px 28px;
+  padding: 32px 30px 34px;
+  background: var(--card);
   border-radius: var(--r-md);
 }
-.t-use-work { background: #e9f2f1; }
-.t-use-family { background: #ecf2e4; }
-.t-use-self { background: #f3f4dc; }
+.t-use-work   { --card: #e9f2f1; --card-deep: #d3e5e2; --card-accent: #3d6660; }
+.t-use-family { --card: #ecf2e4; --card-deep: #d8e6cb; --card-accent: #4b6b3d; }
+.t-use-self   { --card: #f3f4dc; --card-deep: #e5e8bf; --card-accent: #66672b; }
+
+/* Хээ: картын баруун доод буланд тухайн иконы бүдэг том хувилбар */
+.t-use::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  width: 170px;
+  height: 170px;
+  background: center / contain no-repeat;
+  opacity: .055;
+  pointer-events: none;
+}
+.t-use-work::after   { background-image: url("assets/training/icon-work.svg"); }
+.t-use-family::after { background-image: url("assets/training/icon-family.svg"); }
+.t-use-self::after   { background-image: url("assets/training/icon-self.svg"); }
+
+/* Байрлал + Өнгө: икон дугуй дэвсгэр дээр — картын гол цэг */
+.t-use-icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  margin: -8px 0 0 -8px;
+  background: var(--card-deep);
+  border-radius: 50%;
+}
+
+/* Хэмжээ + Тодрол: гарчиг тод, том */
 .t-use h3 {
-  padding-top: 38px;
+  padding-top: 28px;
   color: var(--t-ink);
-  font-size: 23px;
+  font-size: 26px;
   font-weight: 600;
-  line-height: 40.25px;
-  letter-spacing: -.05em;
+  line-height: 1.35;
+  letter-spacing: -.04em;
 }
-.t-use p {
-  max-width: 300px;
-  padding-top: 14px;
-  color: #607365;
-  font-size: 16px;
-  line-height: 29.6px;
-}
+
+/* Байрлал + Өнгө: гол үр дүн гарчгийн доор өнгөт pill */
 .t-use .t-use-tag {
-  margin-top: auto;
-  padding-top: 18px;
-  border-top: 1px solid rgba(183, 199, 175, .5);
-  color: #7e9073;
-  font-size: 10px;
-  line-height: 17.5px;
-  letter-spacing: .05em;
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 3px 12px;
+  background: var(--card-deep);
+  border-radius: 40px;
+  color: var(--card-accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
 }
-.t-use p:not(.t-use-tag) { margin-bottom: 26px; }
+
+/* Хэмжээ + Тодрол: тайлбар 3-р түвшин */
+.t-use p:not(.t-use-tag) {
+  position: relative;
+  max-width: 300px;
+  padding-top: 16px;
+  color: #607365;
+  font-size: 15px;
+  line-height: 27px;
+}
+/* Налуу: нэг түлхүүр үг */
+.t-use em {
+  color: var(--card-accent);
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-size: 1.05em;
+}
 
 /* Program -------------------------------------------------- */
 .t-program {
@@ -1046,6 +1093,24 @@
   .t-btn-lime:hover { transform: translateY(-1px); }
   .t-day-img img { transition: transform .4s ease; }
 
+  /* Хөдөлгөөн + Өнцөг: зөвхөн харилцааны үед. Карт өөрөө хөдлөхгүй —
+     тасралтай холбоос шугам иконы ард үлдэнэ. */
+  .t-use { transition: box-shadow .3s ease; }
+  .t-use-icon img { transition: transform .35s ease; }
+  @media (hover: hover) {
+    .t-use:hover { box-shadow: 0 14px 30px rgba(25, 62, 51, .09); }
+    .t-use:hover .t-use-icon img { transform: rotate(-6deg); }
+  }
+  /* Карт ээлжлэн гарч ирнэ (0 / 120 / 240ms) */
+  .reveal-on .t-daily .t-use {
+    opacity: 0;
+    translate: 0 16px;
+    transition: opacity .6s ease var(--d, 0s), translate .6s ease var(--d, 0s), box-shadow .3s ease;
+  }
+  .reveal-on .t-daily .t-use:nth-child(2) { --d: .12s; }
+  .reveal-on .t-daily .t-use:nth-child(3) { --d: .24s; }
+  .reveal-on .t-daily.is-visible .t-use { opacity: 1; translate: none; }
+
   .reveal-on .t-reveal {
     opacity: 0;
     transform: translateY(16px);
@@ -1132,8 +1197,8 @@
   .t-panel-badge-num { font-size: 52px; line-height: 52px; }
   .t-panel-badge-unit { padding-top: 6px; }
 
-  .t-use { padding: 28px 24px 24px; }
-  .t-use h3 { padding-top: 24px; }
+  .t-use { padding: 28px 24px 28px; }
+  .t-use h3 { padding-top: 22px; font-size: 24px; }
   .t-teacher-quote { font-size: 18px; line-height: 30px; }
   .t-enroll-inner { padding: 52px 20px; }
   .t-enroll-btn { width: 100%; min-width: 0; }
