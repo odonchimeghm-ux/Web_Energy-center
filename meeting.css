@@ -891,13 +891,108 @@
 .m-icon-mail-box { left: 1.47px; top: 2.8px; }
 .m-icon-mail-flap { left: 1.47px; top: 4.13px; }
 
+/* Emphasis & Hierarchy — картууд (хэтрүүлэхгүй түвшинд) ------- */
+
+/* Дараагийн уулзалт — Байрлал + Өнгө: баруун дээд буланд «8 суудал» шошго; Хэмжээ: огноо томорсон */
+.m-next { position: relative; }
+.m-next .m-next-date { font-size: 20px; line-height: 29px; }
+.m-next-badge {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 11px;
+  border: 1px solid #dfe6d6;
+  border-radius: var(--m-r-pill);
+  background: #fff;
+  color: var(--m-ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 19px;
+}
+.m-next-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5e9b6c;
+}
+
+/* Танилцуулга — Налуу: урилгын ишлэл Lora налуу */
+.m-about-card .m-about-invite {
+  color: var(--m-ink);
+  font: italic 400 16.5px/29.6px var(--lora);
+}
+
+/* Хөтөлбөр — Хэмжээ + Хээ: алхам бүрийн том бүдэг минут */
+.m-program-num {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: var(--m-accent);
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.05em;
+  opacity: .28;
+  pointer-events: none;
+}
+.m-program-num small {
+  margin-left: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+/* Номын карт — Тодрол: хавтас зөөлөн сүүдэртэй; Налуу: зохиолчийн нэр */
+.m-book-cover img { box-shadow: 0 12px 20px -14px rgba(28, 52, 40, .55), 0 1px 3px rgba(28, 52, 40, .12); }
+.m-book .m-book-author { font: italic 400 13px/22.1px var(--lora); }
+
+/* Үнэ — Хэмжээ + Өнгө: үнэ томорч, ₮ тэмдэг тодотгох ногоон */
+.m-price-value { font-size: 38px; line-height: 48px; }
+.m-price-value span { margin-left: 2px; color: var(--m-accent); font-size: .72em; }
+
+/* Маягт — Тодрол + Байрлал: хуудасны гол үйлдлийн карт дээш өргөгдөж, дээд ирмэгт ногоон зураас */
+.m-form {
+  position: relative;
+  box-shadow: 0 24px 48px -32px rgba(36, 74, 59, .35);
+}
+.m-form::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 28px;
+  right: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--m-accent);
+}
+
 /* Motion --------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
   .m-shelf { scroll-behavior: smooth; }
 
+  /* Хөдөлгөөн: суудлын цэг аажуу лугшина */
+  .m-next-dot { animation: m-pulse 2.4s ease-in-out infinite; }
+  @keyframes m-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(94, 155, 108, .45); }
+    50% { box-shadow: 0 0 0 5px rgba(94, 155, 108, 0); }
+  }
+
   @media (hover: hover) {
-    .m-book-cover img { transition: transform .35s ease; }
-    .m-book-cover:hover img { transform: translateY(-6px); }
+    /* Хөдөлгөөн + Өнцөг: ном бага зэрэг өргөгдөж хазайна, карт сүүдэртэй болно */
+    .m-book { transition: box-shadow .3s ease, border-color .3s ease; }
+    .m-book-cover img { transition: transform .4s ease, box-shadow .4s ease; }
+    .m-book:hover { border-color: #c3cfb9; box-shadow: 0 18px 34px -24px rgba(36, 74, 59, .4); }
+    .m-book:hover .m-book-cover img {
+      transform: translateY(-6px) rotate(-1.5deg);
+      box-shadow: 0 20px 26px -14px rgba(28, 52, 40, .55), 0 2px 5px rgba(28, 52, 40, .14);
+    }
+
+    /* Хөтөлбөр: hover үед минутын тоо тодорно */
+    .m-program-num { transition: opacity .3s ease, transform .3s ease; }
+    .m-program-grid li:hover .m-program-num { opacity: .5; transform: translateY(-3px); }
   }
 
   .reveal-on .m-reveal {
@@ -906,6 +1001,15 @@
     transition: opacity .6s ease, transform .6s ease;
   }
   .reveal-on .m-reveal.is-visible { opacity: 1; transform: none; }
+
+  /* Хөдөлгөөн: хөтөлбөрийн 2 алхам ээлжлэн гарч ирнэ */
+  .reveal-on .m-program li {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .5s ease var(--d, 0s), transform .5s ease var(--d, 0s);
+  }
+  .reveal-on .m-program li + li { --d: .18s; }
+  .reveal-on .m-program.is-visible li { opacity: 1; transform: none; }
 }
 
 /* Responsive ----------------------------------------------- */
@@ -979,6 +1083,7 @@
 
   .m-about-card { padding: 24px 20px; font-size: 15px; line-height: 27px; }
   .m-about-title { font-size: 34px; line-height: 40px; }
+  .m-program-num { right: 0; font-size: 36px; }
 
   .m-library-title { font-size: 36px; line-height: 42px; }
   .m-shelf-bar { flex-wrap: wrap; }
