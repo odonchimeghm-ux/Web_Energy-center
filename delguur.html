@@ -47,16 +47,14 @@
   <main id="main">
     <!-- Intro -->
     <section class="s-wrap s-intro" aria-labelledby="s-intro-title">
-      <div class="s-intro-top">
-        <p class="s-eyebrow s-intro-eyebrow">ЭНЕРЖИ · ДЭЛГҮҮР</p>
-        <p class="s-intro-note">Өөртөө зориулах үнэ цэнтэй хором</p>
-      </div>
+      <!-- Prägnanz: ганц жижиг гарчиг, гарчигтай нэг шулуунд -->
+      <p class="s-eyebrow s-intro-eyebrow">ЭНЕРЖИ · ДЭЛГҮҮР</p>
       <h1 id="s-intro-title" class="s-intro-title">Өөрийгөө ойлгох.<br><span>Өдөр тутмаа бүтээх.</span></h1>
       <div class="s-intro-aside">
         <p>Унших, анзаарах, тэмдэглэх.<br>Өөрийгөө жинхэнээсээ хайрлах энгийн дадлуудыг<br class="s-br"> өдөр тутмын амьдралдаа шингээгээрэй.</p>
         <ul class="s-intro-tags" aria-label="Бүтээгдэхүүн">
-          <li><a href="#book">Ном</a></li>
-          <li><a href="#journal">Зорилгын дэвтэр</a></li>
+          <li><a href="#book">Ном <span aria-hidden="true">↓</span></a></li>
+          <li><a href="#journal">Зорилгын дэвтэр <span aria-hidden="true">↓</span></a></li>
         </ul>
       </div>
     </section>
@@ -65,6 +63,7 @@
     <section id="book" class="s-wrap s-book s-reveal" aria-labelledby="s-book-title">
       <figure class="s-book-stage">
         <img class="s-book-cover" src="assets/shop/book-cover.png" alt="Б. Болормаагийн «Мэдрэлийн тогтолцоогоо чадавхжуулах нь» номын ногоон хавтас" width="340" height="444">
+        <!-- Proximity: тайлбар номын хавтасны шууд доор -->
         <figcaption class="s-book-topics">Бие даан сурах · Көүчинг · Сэтгэл зүй</figcaption>
       </figure>
 
@@ -74,26 +73,30 @@
         <p class="s-book-author">Б. Болормаа</p>
         <p class="s-book-lead">Өөрчлөлт заримдаа илүү их хичээхээс бус, удааширч, өөрийгөө сонсохоос эхэлдэг.</p>
         <p class="s-book-text">Биеийнхээ дохиог анзаарч, мэдрэмж, хариу үйлдлээ ойлгон, өөртэйгөө илүү энэрэнгүй харилцахад чиглэсэн бие даан сурах, көүчинг, сэтгэл зүйн практик гарын авлага.</p>
-        <ul class="s-book-meta">
+        <!-- Similarity: үзүүлэлтүүд дэвтрийнхтэй ижил хайрцагтай -->
+        <ul class="s-specs s-book-meta" aria-label="Номын үзүүлэлт">
           <li>Монгол хэлээр</li>
           <li>140 нүүр</li>
           <li>Зөөлөн хавтастай</li>
         </ul>
 
-        <div class="s-purchase">
-          <div>
-            <p class="s-price">39,000<span>₮</span></p>
-            <p class="s-price-label">Номын үнэ</p>
+        <!-- Common Region: үнэ, захиалах товч, хүргэлт нэг хайрцагт -->
+        <div class="s-buy">
+          <div class="s-purchase">
+            <div>
+              <p class="s-price">39,000<span>₮</span></p>
+              <p class="s-price-label">Номын үнэ · Хүргэлттэй</p>
+            </div>
+            <a class="s-btn" href="tel:88116562">Ном захиалах</a>
           </div>
-          <a class="s-btn" href="tel:88116562">Ном захиалах</a>
         </div>
-        <p class="s-note">Хүргэлттэй.</p>
       </div>
     </section>
 
     <!-- About the book -->
     <section class="s-wrap s-about s-reveal" aria-labelledby="s-about-title">
-      <div>
+      <!-- Uniform Connectedness: номын картаас татсан шугам -->
+      <div class="s-about-head">
         <p class="s-eyebrow">МЭДЭХЭЭС ДАДАЛ РУУ</p>
         <h2 id="s-about-title" class="s-about-title">Өөртэйгөө зөөлөн<br><span>нинж хандаарай.</span></h2>
       </div>
@@ -111,23 +114,17 @@
             <p class="s-eyebrow">ТАНЫ ӨДӨР ТУТМЫН ХАМТРАГЧ</p>
             <h2 id="s-journal-title" class="s-journal-title">Project <span>90 days</span></h2>
           </div>
-          <p class="s-gift-tag">
-            <span class="s-gift-icon" aria-hidden="true">
-              <img class="g1" src="assets/shop/gift-1.svg" alt="" width="15.75" height="3.5">
-              <img class="g2" src="assets/shop/gift-2.svg" alt="" width="12.25" height="6.125">
-              <img class="g3" src="assets/shop/gift-3.svg" alt="" width="2.625" height="12.25">
-              <img class="g4" src="assets/shop/gift-4.svg" alt="" width="6.125" height="5.25">
-              <img class="g5" src="assets/shop/gift-5.svg" alt="" width="6.125" height="5.25">
-            </span>
-            ТАНД ӨГӨХ БЭЛЭГ
-          </p>
         </div>
 
         <div class="s-journal-body">
+          <!-- Common Region: том зураг ба жижиг зургууд нэг хүрээнд -->
           <div class="s-gallery">
             <div class="s-gallery-main">
               <img id="s-gallery-img" src="assets/shop/journal-main.png" alt="Project 90 days дэвтрийн пастель өнгөтэй хавтас, спираль нуруу" width="545" height="589">
-              <button class="s-gallery-zoom" type="button" data-zoom="#s-gallery-img">Зургийг томруулах</button>
+              <!-- Similarity: доорх картуудтай ижил томруулах тэмдэг -->
+              <button class="s-zoom-mark s-gallery-zoom" type="button" data-zoom="#s-gallery-img" aria-label="Зургийг томруулах">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5 14 14M7 5v4M5 7h4"/></svg>
+              </button>
             </div>
             <div class="s-thumbs" role="group" aria-label="Дэвтрийн зургууд">
               <button class="s-thumb" type="button" aria-pressed="true"
@@ -161,11 +158,6 @@
             <h3 class="s-journal-subtitle">Зорилгоо төсөл болго.</h3>
             <p class="s-journal-text">Хийх зүйлсээ нэмж жагсаахаас өмнө танд юу чухал байгааг тодруулъя. Амьдралынхаа тэнцвэрийг эргэцүүлж, зорилгоо жижиг алхам болгон төлөвлөхөд зориулсан дэвтэр.</p>
 
-            <div class="s-gift-msg">
-              <p class="s-gift-price">Үнэ төлбөргүй</p>
-              <p class="s-gift-who">Энержи сэтгэл зүйн төвөөс<br><strong>үйлчилгээ авсан хүн бүрт.</strong></p>
-            </div>
-
             <ul class="s-features">
               <li>
                 <h4>Өөрт чухлаа тодруулах</h4>
@@ -187,14 +179,24 @@
               <li>Спираль нуруу</li>
             </ul>
 
-            <a class="s-btn s-btn-block" href="tel:88116562">Бэлгийн талаар лавлах</a>
-            <p class="s-note">Дэвтрээ хэрхэн авахыг бидэнтэй холбогдон тодруулаарай.</p>
+            <!-- Common Region + Proximity: бэлгийн шошго, нөхцөл, товч, тайлбар нэг картад -->
+            <div class="s-offer">
+              <p class="s-gift-tag">
+                <img class="s-gift-icon" src="assets/shop/icon-gift.svg" alt="" width="21" height="21">
+                ТАНД ӨГӨХ БЭЛЭГ
+              </p>
+              <div class="s-gift-msg">
+                <p class="s-gift-price">Үнэ төлбөргүй</p>
+                <p class="s-gift-who">Энержи сэтгэл зүйн төвөөс<br><strong>үйлчилгээ авсан хүн бүрт.</strong></p>
+              </div>
+              <a class="s-btn s-btn-block" href="tel:88116562">Бэлгийн талаар лавлах</a>
+              <p class="s-note">Дэвтрээ хэрхэн авахыг бидэнтэй холбогдон тодруулаарай.</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Inside the journal -->
+    <!-- Inside the journal — Common Region: дэвтрийн ногоон бүсэд багтана -->
     <section class="s-wrap s-inside s-reveal" aria-labelledby="s-inside-title">
       <div class="s-inside-head">
         <div>
@@ -205,27 +207,33 @@
       </div>
 
       <div class="s-inside-grid">
+        <!-- Prägnanz: зураг өөрөө томруулах товч, буланд жижиг тэмдэг -->
         <article class="s-inside-card">
-          <div class="s-inside-photo">
+          <button class="s-inside-photo" type="button" data-zoom="#s-inside-balance" aria-label="Амьдралын тэнцвэр — томруулж үзэх">
             <img id="s-inside-balance" src="assets/shop/inside-balance.png" alt="Аз жаргалтай амьдралын тэнцвэрийг үнэлэх хүрд дасгал" width="477" height="707" loading="lazy">
-          </div>
+            <span class="s-zoom-mark" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5 14 14M7 5v4M5 7h4"/></svg>
+            </span>
+          </button>
           <div class="s-inside-caption">
             <h3>Амьдралын тэнцвэр</h3>
             <p>Одоо хаана явж байгаагаа анзаарах</p>
-            <button class="s-inside-zoom" type="button" data-zoom="#s-inside-balance">Томруулж үзэх</button>
           </div>
         </article>
         <article class="s-inside-card">
-          <div class="s-inside-photo">
+          <button class="s-inside-photo" type="button" data-zoom="#s-inside-map" aria-label="Төслийн зураглал — томруулж үзэх">
             <img id="s-inside-map" src="assets/shop/inside-mindmap.png" alt="Зорилго, төслөө mind map хэлбэрээр төлөвлөх хуудас" width="476" height="681" loading="lazy">
-          </div>
+            <span class="s-zoom-mark" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="7" cy="7" r="4.75"/><path d="M10.5 10.5 14 14M7 5v4M5 7h4"/></svg>
+            </span>
+          </button>
           <div class="s-inside-caption">
             <h3>Төслийн зураглал</h3>
             <p>Бодлоо нэг зурагт буулгах</p>
-            <button class="s-inside-zoom" type="button" data-zoom="#s-inside-map">Томруулж үзэх</button>
           </div>
         </article>
       </div>
+    </section>
     </section>
 
     <!-- Closing -->

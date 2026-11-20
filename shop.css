@@ -13,6 +13,12 @@
   --manrope: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --s-container: 1160px;
 
+  /* Similarity: бөөрөнхийлөлтийн 3 түвшин + pill (холбоос/шошго) */
+  --r-lg: 22px;    /* том хэсэг: номын карт, галерейн хүрээ */
+  --r-md: 14px;    /* карт: үнэ, бэлэг, дотор хуудас, гол зураг */
+  --r-sm: 8px;     /* жижиг: товч, жижиг зураг, үзүүлэлт */
+  --r-pill: 999px;
+
   color: #66776a;
   font-family: var(--manrope);
 }
@@ -61,7 +67,7 @@
   min-height: 52px;
   padding: 0 26px;
   border: 1px solid var(--s-btn);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--s-btn);
   color: #fff;
   font-size: 14px;
@@ -92,19 +98,7 @@
   column-gap: 32px;
   padding-top: 52px;
 }
-.s-intro-top {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.s-intro-eyebrow { padding-left: 36px; }
-.s-intro-note {
-  color: #7a8478;
-  font-size: 13px;
-  line-height: 24.05px;
-}
+.s-intro-eyebrow { grid-column: 1 / -1; }
 .s-intro-title {
   margin-top: 26px;
   font-size: clamp(36px, 4.2vw, 56.564px);
@@ -125,18 +119,25 @@
   gap: 8px;
   margin-top: 18px;
 }
+/* Uniform Connectedness: ↓ сум — доорх хэсэгтэй холбогдсон холбоос */
 .s-intro-tags a {
-  display: block;
-  padding: 4px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 13px 4px 15px;
   border: 1px solid #cdd7c5;
-  border-radius: 50px;
+  border-radius: var(--r-pill);
   background: rgba(255, 255, 255, .31);
   color: var(--s-ink);
   font-size: 12px;
   line-height: 22.2px;
   transition: background-color .2s, border-color .2s;
 }
+.s-intro-tags a span { color: var(--s-accent); transition: transform .2s ease; }
 .s-intro-tags a:hover { background: #fff; border-color: #9dac95; }
+.s-intro-tags a:hover span { transform: translateY(2px); }
+#book,
+#journal { scroll-margin-top: 24px; }
 
 /* Book ----------------------------------------------------- */
 .s-book {
@@ -145,16 +146,19 @@
   column-gap: 45px;
   margin-top: 46px;
   padding-right: 45px;
-  border-radius: 22px;
+  border-radius: var(--r-lg);
   background: #fff;
   overflow: hidden;
 }
+/* Proximity: хавтас ба тайлбар нэг бүлэг (16px) */
 .s-book-stage {
-  position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   margin: 0;
-  padding: 72px 0 96px;
+  padding: 56px 0;
 }
 .s-book-cover {
   width: 340px;
@@ -163,10 +167,6 @@
   border-radius: 2px 4px 4px 2px;
 }
 .s-book-topics {
-  position: absolute;
-  bottom: 25px;
-  left: 0;
-  right: 0;
   color: #5b755e;
   font-size: 12px;
   line-height: 22.2px;
@@ -179,7 +179,7 @@
   font-weight: 600;
   line-height: 1.33;
 }
-.s-book-title span { color: #789166; }
+.s-book-title span { color: var(--s-accent); }
 .s-book-author {
   margin-top: 12px;
   color: #7a897b;
@@ -198,14 +198,14 @@
   font-size: 16px;
   line-height: 30.4px;
 }
-.s-book-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 32px;
-  margin-top: 22px;
-  color: #71816f;
-  font-size: 12px;
-  line-height: 22.2px;
+.s-specs.s-book-meta { margin-top: 22px; }
+/* Common Region: худалдан авалтын бүх мэдээлэл нэг хайрцагт */
+.s-buy {
+  margin-top: 26px;
+  padding: 18px 22px;
+  border: 1px solid #e1e8dc;
+  border-radius: var(--r-md);
+  background: #f4f7f0;
 }
 .s-purchase {
   display: flex;
@@ -213,9 +213,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 25px;
-  padding-top: 22px;
-  border-top: 1px solid #dce3d9;
 }
 .s-price {
   color: var(--s-ink);
@@ -231,13 +228,31 @@
   font-size: 12px;
   line-height: 22.2px;
 }
-.s-book .s-note { margin-top: 13px; }
 
 /* About ---------------------------------------------------- */
 .s-about {
   display: grid;
   grid-template-columns: 620px 1fr;
-  margin-top: 82px;
+  --about-gap: 48px;  /* Proximity: номын картад ойр */
+  margin-top: var(--about-gap);
+}
+/* Uniform Connectedness: номын картын доод ирмэгээс «Мэдэхээс дадал руу» руу
+   тохойлдсон шугам — хоёр хэсэг нэг номын тухай */
+.s-about-head {
+  position: relative;
+  padding-left: 44px;
+}
+.s-about-head::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--about-gap));
+  left: 26px;
+  width: 12px;
+  height: calc(var(--about-gap) + 9.6px);   /* картаас жижиг гарчгийн голч хүртэл */
+  border-left: 1.5px solid #c3cfb9;
+  border-bottom: 1.5px solid #c3cfb9;
+  border-bottom-left-radius: 8px;
+  pointer-events: none;
 }
 .s-about-title {
   margin-top: 18px;
@@ -253,7 +268,7 @@
 
 /* Journal -------------------------------------------------- */
 .s-journal {
-  margin-top: 88px;
+  margin-top: 120px;  /* Proximity: номын бүлгээс тод салгана */
   padding: 71px 0 80px;
   border-block: 1px solid #e2e8db;
   background: #eaf0e5;
@@ -270,7 +285,7 @@
   font-size: clamp(36px, 3.5vw, 47px);
   line-height: 1.4;
 }
-.s-journal-title span { color: #7c8d66; font-weight: 400; }
+.s-journal-title span { color: var(--s-accent); font-weight: 400; }
 
 .s-gift-tag {
   display: inline-flex;
@@ -279,7 +294,7 @@
   min-height: 48px;
   padding: 0 21px;
   border: 1px solid #dacda8;
-  border-radius: 50px;
+  border-radius: var(--r-pill);
   background: #fff9e8;
   color: #8a7440;
   font-size: 12px;
@@ -287,20 +302,18 @@
   line-height: 22.2px;
   letter-spacing: .04em;
 }
-.s-gift-icon {
-  position: relative;
-  flex: none;
-  width: 21px;
-  height: 21px;
+/* Proximity: шошго бэлгийн картын ирмэг дээр суусан */
+.s-offer .s-gift-tag {
+  position: absolute;
+  top: -18px;
+  left: 20px;
+  min-height: 36px;
+  padding: 0 16px;
 }
-.s-gift-icon img,
+/* Prägnanz: нэг цэвэр SVG икон */
+.s-gift-icon { flex: none; width: 21px; height: 21px; }
 .s-sprout img,
 .s-contact-icon img { position: absolute; max-width: none; }
-.s-gift-icon .g1 { left: 2.62px; top: 8.75px; }
-.s-gift-icon .g2 { left: 4.37px; top: 12.25px; }
-.s-gift-icon .g3 { left: 9.19px; top: 7.44px; }
-.s-gift-icon .g4 { left: 4.37px; top: 3.5px; }
-.s-gift-icon .g5 { left: 10.5px; top: 3.5px; }
 
 .s-journal-body {
   display: grid;
@@ -310,11 +323,17 @@
   margin-top: 39px;
 }
 
-/* Gallery */
+/* Gallery — Common Region: том, жижиг зургууд нэг хүрээнд */
+.s-gallery {
+  padding: 10px 10px 4px;
+  border: 1px solid #d7e0cf;
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, .5);
+}
 .s-gallery-main {
   position: relative;
   aspect-ratio: 545 / 588.59;
-  border-radius: 14px;
+  border-radius: var(--r-md);
   background: #d1c2a7;
   overflow: hidden;
 }
@@ -325,31 +344,23 @@
   object-position: top center;
 }
 .s-gallery-zoom {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  padding: 6px 14px;
+  padding: 0;
   border: 0;
-  border-radius: 30px;
-  background: rgba(255, 254, 245, .93);
-  color: #2e4938;
-  font: 400 12px/22.2px var(--manrope);
   cursor: zoom-in;
-  transition: background-color .2s;
 }
-.s-gallery-zoom:hover { background: #fff; }
 
 .s-thumbs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 13px;
+  gap: 8px;
+  margin-top: 8px;
 }
 .s-thumb {
+  position: relative;
   display: block;
   padding: 5px 5px 8px;
   border: 1px solid transparent;
-  border-radius: 9px;
+  border-radius: var(--r-sm);
   background: transparent;
   color: #6e7f65;
   font: 400 12px/22.2px var(--manrope);
@@ -361,7 +372,7 @@
   width: 100%;
   height: 80px;
   margin-bottom: 3px;
-  border-radius: 5px;
+  border-radius: calc(var(--r-sm) - 4px);  /* дотор зураг: хүрээ − padding */
   object-fit: cover;
 }
 .s-thumb:hover { border-color: #c6d0bb; color: #254a35; }
@@ -369,6 +380,17 @@
   border-color: #92a17a;
   background: #fffaf1;
   color: #254a35;
+}
+/* Uniform Connectedness: идэвхтэй жижиг зургаас том зураг руу заасан сум */
+.s-thumb[aria-pressed="true"]::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  border: 6px solid transparent;
+  border-top: 0;
+  border-bottom-color: #92a17a;
+  transform: translateX(-50%);
 }
 
 /* Journal info */
@@ -382,12 +404,18 @@
   font-size: 16px;
   line-height: 30.4px;
 }
+/* Common Region: бэлгийн нөхцөл + товч + тайлбар нэг картад */
+.s-offer {
+  position: relative;
+  margin-top: 40px;
+  padding: 34px 24px 18px;
+  border: 1px solid #e3dcc4;
+  border-radius: var(--r-md);
+  background: #fffcf3;
+}
 .s-gift-msg {
   display: flex;
   align-items: center;
-  margin-top: 25px;
-  padding: 19px 0;
-  border-block: 1px solid #cad6c1;
 }
 .s-gift-price {
   flex: none;
@@ -421,9 +449,21 @@
   position: absolute;
   top: -.5px;
   left: 0;
+  width: 20px;
   color: #8a9a6c;
   font-size: 21px;
   line-height: 29.4px;
+  text-align: center;
+}
+/* Uniform Connectedness: ✦ тэмдгүүдийг холбосон шугам — 3 алхмын дараалал */
+.s-features li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  bottom: -16px;
+  left: 9.5px;
+  width: 1px;
+  background: #c3cfb9;
 }
 .s-features h4 {
   margin: 0;
@@ -449,29 +489,24 @@
 .s-specs li {
   padding: 3px 10px;
   border: 1px solid #cad6c1;
-  border-radius: 5px;
+  border-radius: var(--r-sm);
   color: #6a7e60;
   font-size: 11px;
   line-height: 20.35px;
 }
-.s-journal-info .s-btn-block { margin-top: 20px; }
-.s-journal-info .s-note { margin-top: 13px; }
+.s-offer .s-btn-block { margin-top: 20px; }
+.s-offer .s-note { margin-top: 12px; text-align: center; }
 
-/* Inside --------------------------------------------------- */
-.s-inside { margin-top: 80px; }
-.s-inside-head {
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  align-items: end;
-  gap: 24px;
-}
+/* Inside — Common Region: дэвтрийн ногоон бүс дотор -------- */
+.s-inside { margin-top: 96px; }
 .s-inside-title {
   margin-top: 11px;
   font-size: clamp(28px, 2.75vw, 37px);
   line-height: 1.45;
 }
+/* Proximity: тайлбар гарчгийн шууд доор */
 .s-inside-note {
-  padding-bottom: 6px;
+  margin-top: 10px;
   color: #71806e;
   font-size: 14px;
   line-height: 25.9px;
@@ -483,17 +518,40 @@
   margin-top: 36px;
 }
 .s-inside-card {
-  border: 1px solid #e5e4d9;
-  border-radius: 14px;
+  border: 1px solid #d7e0cf;
+  border-radius: var(--r-md);
   background: #f0eee5;
   overflow: hidden;
 }
+/* Prägnanz: зураг өөрөө томруулах товч */
 .s-inside-photo {
   position: relative;
+  display: block;
+  width: 100%;
   height: 325px;
+  padding: 0;
+  border: 0;
   background: #fff;
   overflow: hidden;
+  cursor: zoom-in;
 }
+.s-zoom-mark {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 254, 245, .93);
+  box-shadow: 0 2px 8px rgba(36, 63, 53, .12);
+  color: #2e4938;
+  transition: background-color .2s, color .2s;
+}
+.s-gallery-zoom:hover,
+.s-inside-photo:hover .s-zoom-mark,
+.s-inside-photo:focus-visible .s-zoom-mark { background: var(--s-btn); color: #fff; }
 .s-inside-photo img {
   position: absolute;
   top: 19px;
@@ -517,16 +575,6 @@
   font-size: 13px;
   line-height: 24.05px;
 }
-.s-inside-zoom {
-  margin-top: 14px;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: #758564;
-  font: 400 11px/20.35px var(--manrope);
-  cursor: zoom-in;
-}
-.s-inside-zoom:hover { color: var(--s-ink); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Closing -------------------------------------------------- */
 .s-closing {
@@ -567,7 +615,7 @@
   max-height: 92vh;
   padding: 0;
   border: 0;
-  border-radius: 14px;
+  border-radius: var(--r-md);
   background: #fffdf8;
   overflow: visible;
 }
@@ -575,7 +623,7 @@
 .s-lightbox img {
   max-width: 100%;
   max-height: 92vh;
-  border-radius: 14px;
+  border-radius: var(--r-md);
   object-fit: contain;
 }
 .s-lightbox-close {
@@ -639,17 +687,16 @@
   .s-intro-aside { margin-top: 24px; }
 
   .s-book { grid-template-columns: 1fr; padding: 0 28px; }
-  .s-book-stage { padding: 40px 0 64px; }
+  .s-book-stage { padding: 36px 0 28px; }
   .s-book-info { padding-top: 8px; }
 
-  .s-about { grid-template-columns: 1fr; row-gap: 24px; margin-top: 64px; }
+  .s-about { --about-gap: 40px; grid-template-columns: 1fr; row-gap: 24px; }
 
-  .s-journal { margin-top: 64px; padding: 56px 0 64px; }
+  .s-journal { margin-top: 88px; padding: 56px 0 64px; }
   .s-journal-body { grid-template-columns: 1fr; row-gap: 40px; margin-top: 32px; }
   .s-gallery { max-width: 545px; }
 
   .s-inside { margin-top: 64px; }
-  .s-inside-head { grid-template-columns: 1fr; }
   .s-inside-grid { grid-template-columns: 1fr; }
 
   .s-closing { margin-top: 72px; padding-bottom: 64px; }
@@ -657,11 +704,9 @@
 
 @media (max-width: 640px) {
   .s-intro { padding-top: 32px; }
-  .s-intro-top { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .s-intro-eyebrow { padding-left: 0; }
   .s-intro-title { margin-top: 18px; }
 
-  .s-book { padding: 0 20px; border-radius: 18px; }
+  .s-book { padding: 0 20px; }
   .s-book-cover { width: min(260px, 100%); }
   .s-purchase .s-btn { width: 100%; }
 
