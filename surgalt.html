@@ -70,12 +70,10 @@
               Хэмнэл турших
             </a>
           </div>
-          <p class="t-hero-note">Ажил, гэр, өдөр тутмын амьдралдаа ашиглах энгийн дадлууд.</p>
         </div>
 
         <div class="t-hero-foot">
-          <p class="t-hero-motto">АМЬСГАЛАА АНЗААР.<br>БИЕЭ МЭДЭР. ТҮР АЗНА.</p>
-          <a class="t-hero-more" href="#intro">Дэлгэрүүлж үзэх</a>
+          <a class="t-link t-link-light" href="#intro">Дэлгэрүүлж үзэх <span aria-hidden="true">↓</span></a>
         </div>
 
         <ul class="t-facts" aria-label="Сургалтын товч мэдээлэл">
@@ -118,19 +116,16 @@
 
       <div class="t-breath-top">
         <p class="t-breath-kicker">БАЙГАЛИЙН ХЭМНЭЛД · ӨӨРТӨӨ ЗОРИУЛАХ 60 СЕКУНД</p>
-        <p class="t-breath-space"><span aria-hidden="true">✳</span> Түр азнах орон зай</p>
       </div>
 
       <div class="t-breath-body">
         <div class="t-breath-copy">
           <h2 id="t-breath-title" class="t-breath-title">Яг одоо.<br>Нэг тайван<br><span>амьсгал.</span></h2>
           <p class="t-breath-lead">Усны урсгалыг ажиглаад, гэрэлт цэгийг даган амьсгалаа зөөлөн аваад гаргаарай.</p>
-          <p class="t-breath-hint">Дээшлэхэд — амьсгалаа авна.<br>Доошлоход — амьсгалаа гаргана.</p>
         </div>
 
         <div class="t-breath-stage" data-breath>
           <div class="t-breath-status">
-            <p class="t-breath-small">ӨӨРИЙН ХЭМНЭЛД ЭРГЭН ИР</p>
             <p class="t-breath-phase" data-breath-phase aria-live="polite">Түр азна.</p>
             <p class="t-breath-sub" data-breath-sub>Бэлэн болохоороо эхлээрэй.</p>
           </div>
@@ -153,23 +148,27 @@
             </div>
           </div>
 
+          <!-- Proximity: долгионы тайлбар долгион дороо -->
           <ul class="t-breath-legend">
-            <li data-breath-legend="in">Амьсгаа авах <small>4 сек</small></li>
-            <li data-breath-legend="out">Амьсгалаа гаргах <small>6 сек</small></li>
+            <li data-breath-legend="in"><span class="t-legend-arrow" aria-hidden="true">↑</span> Дээшлэхэд — амьсгалаа авна <small>4 сек</small></li>
+            <li data-breath-legend="out"><span class="t-legend-arrow" aria-hidden="true">↓</span> Доошлоход — амьсгалаа гаргана <small>6 сек</small></li>
           </ul>
         </div>
       </div>
 
-      <div class="t-breath-bar">
-        <button class="t-btn t-btn-lime t-breath-btn" type="button" data-breath-toggle>1 минут турших</button>
-        <div class="t-breath-meters">
-          <p class="t-meter t-meter-cycles"><span data-breath-cycles>0 / 6</span><small>хэмнэл</small></p>
-          <p class="t-meter"><span data-breath-time>01:00</span><small>үлдсэн хугацаа</small></p>
+      <!-- Common Region: удирдлага, тоолуур, явц нэг хавтан дотор -->
+      <div class="t-breath-controls">
+        <div class="t-breath-bar">
+          <button class="t-btn t-btn-lime t-breath-btn" type="button" data-breath-toggle>1 минут турших</button>
+          <div class="t-breath-meters">
+            <p class="t-meter t-meter-cycles"><span data-breath-cycles>0 / 6</span><small>хэмнэл</small></p>
+            <p class="t-meter"><span data-breath-time>01:00</span><small>үлдсэн хугацаа</small></p>
+          </div>
         </div>
-      </div>
 
-      <div class="t-breath-progress" role="progressbar" aria-label="Нэг минутын явц" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0" data-breath-progress>
-        <span data-breath-fill></span>
+        <div class="t-breath-progress" role="progressbar" aria-label="Нэг минутын явц" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0" data-breath-progress>
+          <span data-breath-fill></span>
+        </div>
       </div>
       <p class="t-breath-note">Амьсгалаа хүчлэхгүй, өөрт тухтай хэмжээнд хийгээрэй. Хүссэн үедээ зогсоож болно.</p>
     </section>
@@ -209,6 +208,8 @@
         <h2 id="t-program-title" class="t-h2">Нэг өдөр.<br><span>Нэг жижиг алхам.</span></h2>
         <p class="t-program-lead">Суурь ойлголтоос эхэлж, арга бүрийг дадлагаар суралцана.</p>
 
+        <!-- Common Region: өдрийн табууд ба агуулга нэг карт дотор -->
+        <div class="t-course">
         <div class="t-days" role="tablist" aria-label="Сургалтын өдрүүд" data-days>
           <button class="t-day" type="button" role="tab" id="day-tab-1" aria-controls="day-panel" aria-selected="true" style="--col:0;--row:0">
             <span class="t-day-img"><img src="assets/training/days-sprite.jpg" alt="" width="1536" height="1024" loading="lazy"></span>
@@ -263,12 +264,12 @@
             <p class="t-panel-foot" data-day-field="foot">Видео тайлбар + Удирдуулсан дадлага</p>
           </div>
         </div>
-
+        </div>
+        <!-- Proximity + Prägnanz: картын шууд доор, давхардсан 2 тэмдэглэлийг нэгтгэсэн -->
         <div class="t-program-note">
           <p>Өдөрт <strong>10–20 минут</strong> дадлага хийнэ.</p>
-          <p>Хөтөлбөрөө өөрт тохирох хуваариар үзээрэй.</p>
+          <p>Санал болгох дараалал — өөрийн хэмнэлээр үзэж болно.</p>
         </div>
-        <p class="t-program-foot">7 хоногийн санал болгох дараалал. Та өөрийн хэмнэлээр суралцаж болно.</p>
       </div>
     </section>
 
@@ -286,7 +287,7 @@
         <blockquote class="t-teacher-quote">
           <p>Өдөр тутмын ачааллын дунд өөртөө түр азнах цаг гаргахаас эхэлье.</p>
         </blockquote>
-        <a class="t-teacher-link" href="index.html#about-title">Энержи сэтгэл зүйн төвийн тухай</a>
+        <a class="t-link t-teacher-link" href="index.html#about-title">Энержи сэтгэл зүйн төвийн тухай <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -297,11 +298,14 @@
 
       <div class="t-enroll-inner">
         <p class="t-enroll-eyebrow">АМЬСГАЛЫН ХҮЧ · АНХАН ШАТ</p>
-        <h2 id="t-enroll-title" class="t-enroll-title">Өөртөө зориулсан<br>шинэ эхлэл.</h2>
+        <h2 id="t-enroll-title" class="t-enroll-title">Өөртөө зориулсан<br><span>шинэ эхлэл.</span></h2>
         <p class="t-enroll-lead">Тайвшруулах амьсгалын 8 арга.<br>7 хоногийн онлайн хөтөлбөр.</p>
-        <p class="t-enroll-price">49,000₮</p>
-        <p class="t-enroll-price-label">Сургалтын нийт төлбөр</p>
-        <a class="t-btn t-btn-lime t-enroll-btn" href="tel:88116562">Сургалтад бүртгүүлэх</a>
+        <!-- Common Region: үнэ ба бүртгэлийн товч нэг карт дотор -->
+        <div class="t-enroll-offer">
+          <p class="t-enroll-price">49,000₮</p>
+          <p class="t-enroll-price-label">Сургалтын нийт төлбөр</p>
+          <a class="t-btn t-btn-lime t-enroll-btn" href="tel:88116562">Сургалтад бүртгүүлэх</a>
+        </div>
         <p class="t-enroll-note">Өөрийн цаг, өөрийн хэмнэлээр.</p>
       </div>
     </section>

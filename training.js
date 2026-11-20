@@ -101,6 +101,7 @@
         var on = i === index;
         t.setAttribute('aria-selected', on ? 'true' : 'false');
         t.tabIndex = on ? 0 : -1;
+        t.classList.toggle('is-done', i < index); // өмнөх өдрүүдийн холбоос тод
       });
       if (focus) tab.focus();
 
@@ -250,7 +251,7 @@
   var stop = function (finished) {
     running = false;
     cancelAnimationFrame(rafId);
-    stage.classList.remove('is-running');
+    section.classList.remove('is-running');
     reset();
     if (finished) {
       el.phase.textContent = 'Сайн байна.';
@@ -280,7 +281,7 @@
   var start = function () {
     running = true;
     lastPhase = '';
-    stage.classList.add('is-running');
+    section.classList.add('is-running');
     toggle.textContent = 'Зогсоох';
     startTime = null;
     rafId = requestAnimationFrame(tick);
